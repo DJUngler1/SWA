@@ -14,7 +14,7 @@
 
 * Die Klasse ist der Bauplan wie der beschreibt wie die einzelnen Objekte aufgebaut sind
 
-## Funktionale Programmierung
+## Funktionale Programmierung 
 
 * Funktionen können auch andere Funktionen als Argunmente oder Rückgabewerte haben
 
@@ -117,7 +117,7 @@
 
 * if Ausfrücke können nach einem Gleichheitsziechen stehen
 
-![Alt-Text](AusdruckDurchIf.PNG)
+![Alt-Text](Bilder/AusdruckDurchIf.PNG)
 
 ## Statt when Anweisungen Ausdrücke
 
@@ -125,7 +125,7 @@
 
 * Bsp:
 
-![Alt-Text](WhenAusdruck.PNG)
+![Alt-Text](Bilder/WhenAusdruck.PNG)
 
 ## try-catch Ausfrücke
 
@@ -133,7 +133,7 @@
 
 * Bsp:
 
-![Alt-Text](TryCatchAusdruch.PNG)
+![Alt-Text](Bilder/TryCatchAusdruch.PNG)
 
 ## Sealed Class statt Exception Handling
 
@@ -143,6 +143,4 @@
 
 * Bsp:
 
-![Alt-Text](SealedClasses.PNG)
-
-## 
+![Alt-Text](Bilder/SealedClasses.PNG)
