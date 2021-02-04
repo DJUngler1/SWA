@@ -4,25 +4,28 @@
 2) Was ist ein Aggregate? 
 * Ein Aggregate ist ein Cluster aus verschiedenen Value Objects und Entities. Ein Aggregate wird als eine transktionelle Einheit betrachtet.
 3) Was ist ein Aggregate Root? 
-* Ein Aggregate Root bildet bei DDD die einzige Schnittstelle nach außen. (Alle anderen Entites sind nicht von außen zugreifbar und werden über das Aggregate Root aufgerufen)
+* Das Aggregate Root bildet bei DDD die einzige Schnittstelle nach außen. (Alle anderen Entites sind nicht von außen zugreifbar und werden über das Aggregate Root aufgerufen)
 4) Was ist der Unterschied zwischen Aggregate Root & einem Repository?
-* Der Unterschied ist das Aggregte Root bildet ein Entity Objekt ab, as Repository führt mit dem Aggregate Root Opertationen auf der Datenbank aus.
+* Das Aggregte Root bildet ein Entity Objekt ab, das Repository führt mit dem Aggregate Root Opertationen auf der Datenbank aus.
 5) Was ist das Repository (Pattern)? 
-* Das Repository ist die Abstraktion des Persistenz Mechanismus. Es führt mit dem Aggregate Root Opertionen auf der Datenbank aus.
+* Das Repository Pattern ist eine Abstraktion des Persistenz Mechanismus. Es führt mit dem Aggregate Root Opertionen auf der Datenbank aus. // Komma ? 
 6) Was ist ein Value Object? 
-* Ein Value Object ist ein kleines unveränderliches Objekt das statt Strings zum Vergleich mit anderen Objekten genutzt wird.
+* Ein Value Object ist ein kleines, unveränderliches Objekt das statt Strings zum Vergleich mit anderen Objekten genutzt wird.
 7) Was ist ein Bounded Context? 
 * Ein Bounded Context ist eine logische Gruppierung zusammenhängender Funktionalität. Jeder Bounded Context hat sein eigenes Domänenmodell. Ist von anderen Bounded Contexten abgegrenzt und orientiert sich an den Geschäftsvorfällen
 8) Was ist ein Service?
-* Ein Service bildet bildet die fachliche Logik mit Hilfe der Entities Value Objects und des Repositories ab. Services sind in der Regel zustandslos
-9)  Erklären Sie den Unterschied zwischen einem Thread, Stack und Heap! 
+* Ein Service bildet bildet die fachliche Logik mit Hilfe der Entities Value Objects und des Repositories ab. Services sind in der Regel zustandslos.
+// Sind Services wirklich in der Regel zustandslos? oder sind das nur Microservices? 
+1)  Erklären Sie den Unterschied zwischen einem Thread, Stack und Heap! 
 * Ein Thread ist ein sequentieller Ausführungssttrang von Anweisungen, der zu genau einem Betriebssystempprozess gehört.
-* Ein Stack gehört zu genau einem Thread, in eine Stack werden alle Anweisungen und Referenzen des Threads gespeicher und nach dem LIFO Prinzip abgearbeitet.
+* Ein Stack gehört zu genau einem Thread, in eine Stack werden alle Anweisungen und Referenzen des Threads gespeichert und nach dem LIFO Prinzip abgearbeitet.
 * Ein Heap ist eine dynamische Speicherallokation die genau zu einem Betriebssystemprozess gehört, alle Threads des Prozesses teilen sich den Heap.
 10)  Was können wir bei Kotlin anders machen als in C# in Bezug auf
 If-Anweisungen/When-Anweisungen/Try-Catch-Anweisungen?
-* Da es sich in Kotlin nicht um Anweisungem sondern um Ausdrücke handelt können diese anderst als in C# rechts vom Gleichetszeichen stehen also direkt einer Variablen zugewiesen werden.
-11) Was ist ein ENUM? 
+* Da es sich in Kotlin nicht um Anweisungem sondern um Ausdrücke handelt können diese anderst als in C# rechts vom Gleichheitsezeichen stehen also direkt einer Variablen zugewiesen werden.
+* Alternative: Da es sich in Kotlin nicht um Anweisungem sondern um Ausdrücke handelt können diese anderst als in C# rechts vom Gleichheitsszeichen
+* // Mann muss nicht extra sagen das man es direkt einer Varialben zuweisen kann, wird eigentlich implizit beschrieben und das dürfte Jürggen schon verstehen
+1)  Was ist ein ENUM? 
 * Ein Enum ist ein Daten Typ der die Werte von vordefinierten Konstanten annehmen kann.
 12) Erklären Sie Domain-Driven-Design anhand eines Beispiels!
 * Domain Driven Design ist ein Modelierungskonzept für die technische Umsetzung eines fachlichen Prozesses. 
