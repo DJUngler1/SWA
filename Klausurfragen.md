@@ -1,73 +1,75 @@
 # Allgemein 
 1) Was ist eine Entity im Kontext von DDD? 
-
+* Eine Entity ist ein Objekt mit einer unveränderlichen und eineutigen Identität und weiteren Attributen.
 2) Was ist ein Aggregate? 
-
+* Ein Aggregate ist ein Cluster aus verschiedenen Value Objects und Entities. Ein Aggregate wird als eine transktionelle Einheit betrachtet.
 3) Was ist ein Aggregate Root? 
-
-4) Was ist der Unterschied zwischen Aggregate Root & einem Repository? -phase6 
-
+* Ein Aggregate Root bildet bei DDD die einzige Schnittstelle nach außen. (Alle anderen Entites sind nicht von außen zugreifbar und werden über das Aggregate Root aufgerufen)
+4) Was ist der Unterschied zwischen Aggregate Root & einem Repository?
+* Der Unterschied ist das Aggregte Root bildet ein Entity Objekt ab, as Repository führt mit dem Aggregate Root Opertationen auf der Datenbank aus.
 5) Was ist das Repository (Pattern)? 
-
+* Das Repository ist die Abstraktion des Persistenz Mechanismus. Es führt mit dem Aggregate Root Opertionen auf der Datenbank aus.
 6) Was ist ein Value Object? 
-
+* Ein Value Object ist ein kleines unveränderliches Objekt das statt Strings zum Vergleich mit anderen Objekten genutzt wird.
 7) Was ist ein Bounded Context? 
-
+* Ein Bounded Context ist eine logische Gruppierung zusammenhängender Funktionalität. Jeder Bounded Context hat sein eigenes Domänenmodell. Ist von anderen Bounded Contexten abgegrenzt und orientiert sich an den Geschäftsvorfällen
 8) Was ist ein Service?
-
-9) Erklären Sie den Unterschied zwischen einem Thread, Stack und Heap! 
-
-10) Was können wir bei Kotlin anders machen als in C# in Bezug auf
-If-Anweisungen/When-Anweisungen/Try-Catch-Anweisungen? 
-
+* Ein Service bildet bildet die fachliche Logik mit Hilfe der Entities Value Objects und des Repositories ab. Services sind in der Regel zustandslos
+9)  Erklären Sie den Unterschied zwischen einem Thread, Stack und Heap! 
+* Ein Thread ist ein sequentieller Ausführungssttrang von Anweisungen, der zu genau einem Betriebssystempprozess gehört.
+* Ein Stack gehört zu genau einem Thread, in eine Stack werden alle Anweisungen und Referenzen des Threads gespeicher und nach dem LIFO Prinzip abgearbeitet.
+* Ein Heap ist eine dynamische Speicherallokation die genau zu einem Betriebssystemprozess gehört, alle Threads des Prozesses teilen sich den Heap.
+10)  Was können wir bei Kotlin anders machen als in C# in Bezug auf
+If-Anweisungen/When-Anweisungen/Try-Catch-Anweisungen?
+* Da es sich in Kotlin nicht um Anweisungem sondern um Ausdrücke handelt können diese anderst als in C# rechts vom Gleichetszeichen stehen also direkt einer Variablen zugewiesen werden.
 11) Was ist ein ENUM? 
-
+* Ein Enum ist ein Daten Typ der die Werte von vordefinierten Konstanten annehmen kann.
 12) Erklären Sie Domain-Driven-Design anhand eines Beispiels!
-
-13) Was könnten Ursachen für die Entstehung von Big Data sein und was könnte zu Problemen beim
+* Domain Driven Design ist ein Modelierungskonzept für die technische Umsetzung eines fachlichen Prozesses. 
+1)  Was könnten Ursachen für die Entstehung von Big Data sein und was könnte zu Problemen beim
 Monolithen führen? 
+* Die Ursachen für die Entstehung von Big Data sind, IoT, Social Media, Process Mining. Bei Monlithen sorgt die Menge und die große Anzahl an Unterschiedlichen Datenformaten für Probleme. Durch Speicherung von all dem auf einer Datenbank wird der Zugriff immer langsmer.
+1)  Warum sollten .yml-Dateien (YAML) für Konfiguration benutzt werden (Vorteil)? 
+* YAML ist leichtgewichter, leichter lessbar, und mächtiger als z.B XML.
+1)  Welche Nachteile haben .yml-Dateien? 
 
-14) Warum sollten .yml-Dateien (YAML) für Konfiguration benutzt werden (Vorteil)? 
+2)  Was ist Backpressure? 
 
-15) Welche Nachteile haben .yml-Dateien? 
+3)  Beschreiben Sie 3 Vorteile, die IntelliJ IDEA im Vergleich mit Editoren, wie Notepad++ hat? 
 
-16) Was ist Backpressure? 
+4)  Vorteile von IntelliJ - IDE?
 
-18) Beschreiben Sie 3 Vorteile, die IntelliJ IDEA im Vergleich mit Editoren, wie Notepad++ hat? 
+5)  Was sind “one-way-functions” ? 
 
-19) Vorteile von IntelliJ - IDE?
+6)  Erklären Sie nicht-blockierende Verarbeitung! 
 
-20) Was sind “one-way-functions” ? 
+7)  Warum sollte asynchron statt imperativ programmiert werden? 
 
-21) Erklären Sie nicht-blockierende Verarbeitung! 
+8)  Erläutern Sie, warum nicht jede Server-Anwendung „reactive“ entwickelt wird! - KlausurFrage 
 
-22) Warum sollte asynchron statt imperativ programmiert werden? 
+9)  Erläutern Sie Probleme bei Reactive Programming!* - KlausurFrage 
 
-23) Erläutern Sie, warum nicht jede Server-Anwendung „reactive“ entwickelt wird! - KlausurFrage 
+10) Erklären Sie was ein Stacktrace ist.- Klausur-Frage 
 
-24) Erläutern Sie Probleme bei Reactive Programming!* - KlausurFrage 
+11) Vergleichen Sie Boundary Control Entity & Schichtenarchitektur? 
 
-25) Erklären Sie was ein Stacktrace ist.- Klausur-Frage 
+12) Wann ist es sinnvoll, den Cache in die Anwendungslogik zu implementieren? 
 
-26) Vergleichen Sie Boundary Control Entity & Schichtenarchitektur? 
+13) Erklären Sie die 4 Eigenschaften des Reactive Manifesto (MRRE)! 
 
-27) Wann ist es sinnvoll, den Cache in die Anwendungslogik zu implementieren? 
+14) Grenzen Sie Funktionen, Methoden und Prozeduren voneinander ab! 
 
-28) Erklären Sie die 4 Eigenschaften des Reactive Manifesto (MRRE)! 
+15) Was macht die Funktion findById() in der Handler Klasse? 
 
-29) Grenzen Sie Funktionen, Methoden und Prozeduren voneinander ab! 
+16) Erklären Sie den Unterschied zwischen Flow und List in Kotlin! 
 
-30) Was macht die Funktion findById() in der Handler Klasse? 
+17) Was ist der Unterschied zwischen einer Menge/Set und einer Liste? 
 
-33) Erklären Sie den Unterschied zwischen Flow und List in Kotlin! 
+18) Was ist der Unterschied zwischen Mutablelist und Flow? 
 
-35) Was ist der Unterschied zwischen einer Menge/Set und einer Liste? 
+19) Warum ist es sinnvoll, BigDecimal und nicht float/double zu verwenden? 
 
-36) Was ist der Unterschied zwischen Mutablelist und Flow? 
-
-37) Warum ist es sinnvoll, BigDecimal und nicht float/double zu verwenden? 
-
-38) Erklären Sie den Zusammenhang von ETags & If-None-Match bei einem GET-Request & einem wiederholten
+20) Erklären Sie den Zusammenhang von ETags & If-None-Match bei einem GET-Request & einem wiederholten
 GET-Request! 
 
 39) Erklären Sie ETags! 
