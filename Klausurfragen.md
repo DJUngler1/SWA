@@ -222,138 +222,140 @@ Authentifizierungsverfahren
 113) Wieso ist es bei verteilten Systemen mit Microservices problematisch BASIC-Authentifizierung zu
 verwenden? 
 
-114) Wie funktioniert Token? 
-HATEOAS 
+114) Wie funktioniert Token?
+     
+# HATEOAS 
 
-117) Erläutern Sie HATEOAS mit Beispielen von Unternehmen wie PayPal, Facebook, …! 
+1)   Erläutern Sie HATEOAS mit Beispielen von Unternehmen wie PayPal, Facebook, …! 
 
-118) Erklären Sie den Unterschied zwischen Atom-Links & Link-Header! 
+2)   Erklären Sie den Unterschied zwischen Atom-Links & Link-Header! 
 
-119) Erkläre Unterschied zwischen URI und URL! 
+3)   Erkläre Unterschied zwischen URI und URL! 
 
-120) Was ist der Unterschied zwischen Structural Links & Transitional Links? 
+4)   Was ist der Unterschied zwischen Structural Links & Transitional Links? 
 Datenbankzugriff und Spring Data (MongoDB) 
 
-121) Was heißt eventually consistent? 
+1)   Was heißt eventually consistent? 
 
-122) Erklären Sie die Funktionsweise bei optimistischen DB-Transaktionen!
+2)   Erklären Sie die Funktionsweise bei optimistischen DB-Transaktionen!
 
-123) Wieso ist es bei verteilten Systemen sinnvoll keine pessimistische Synchronisation zu verwenden? 
+3)   Wieso ist es bei verteilten Systemen sinnvoll keine pessimistische Synchronisation zu verwenden? 
 
-124) Erläutern Sie, was passiert, wenn auf optimistische Synchronisation verzichtet wird und eine
+4)   Erläutern Sie, was passiert, wenn auf optimistische Synchronisation verzichtet wird und eine
 konkurrierende Änderung schneller erfolgt als die eigene Änderung: Update - Update 
 
-125) Erläutern Sie, was passiert, wenn auf optimistische Synchronisation verzichtet wird und ein konkurrierendes
+1)   Erläutern Sie, was passiert, wenn auf optimistische Synchronisation verzichtet wird und ein konkurrierendes
 Löschen schneller erfolgt als die eigene Änderung: Update - Delete 
 
-126) Erläutern Sie, was passiert, wenn auf optimistische Synchronisation verzichtet wird und eine
+1)   Erläutern Sie, was passiert, wenn auf optimistische Synchronisation verzichtet wird und eine
 konkurrierende Änderung schneller erfolgt als die eigene Löschen: Delete - Update 
 
-127) Erläutern Sie, was passiert, wenn auf optimistische Synchronisation verzichtet wird und ein konkurrierendes
+1)   Erläutern Sie, was passiert, wenn auf optimistische Synchronisation verzichtet wird und ein konkurrierendes
 Löschen schneller erfolgt als das eigene Löschen. Delete - Delete 
 
-128) Wie beschreibt man Abhängigkeiten in SQL bzw. MongoDB? 
+1)   Wie beschreibt man Abhängigkeiten in SQL bzw. MongoDB? 
 
-129) Nennen Sie zu Collection, Document & Embedded Document, die dazugehörigen Gegenstücke in
+2)   Nennen Sie zu Collection, Document & Embedded Document, die dazugehörigen Gegenstücke in
 relationalen DB-Systemen. 
 
-130) Unterschiede von MongoDB & relationaler DB? 
+1)   Unterschiede von MongoDB & relationaler DB? 
 
-131) Was ist das Schema bei relationalen Datenbanken? 
+2)   Was ist das Schema bei relationalen Datenbanken? 
 
-132) Erklären Sie die Unterschiede zwischen relational und objektorientiert! 
+3)   Erklären Sie die Unterschiede zwischen relational und objektorientiert! 
 
-133) 3 Unterschiede zwischen REST und DDD? 
+4)   3 Unterschiede zwischen REST und DDD? 
 
-134) Wie werden Beziehungen in rel. DB, JSON Documents & Kotlin Objekten realisiert? 
+5)   Wie werden Beziehungen in rel. DB, JSON Documents & Kotlin Objekten realisiert? 
 
-135) Wann benutzt man ReactiveCrudRepository & wann ReactiveMongoOperations? 
+6)   Wann benutzt man ReactiveCrudRepository & wann ReactiveMongoOperations? 
 
-137) Vergleichen Sie die Abfrage einer relationalen DB mit der Abfrage in MongoDB! 
+7)   Vergleichen Sie die Abfrage einer relationalen DB mit der Abfrage in MongoDB! 
 
-138) Erklären Sie 2 Pattern aus DDD, die bei Spring Data ähnlich verwendet werden? 
+8)   Erklären Sie 2 Pattern aus DDD, die bei Spring Data ähnlich verwendet werden? 
 
-139) Beschreiben Sie die 4 Stores von NoSQL-Systemen! 
+9)   Beschreiben Sie die 4 Stores von NoSQL-Systemen! 
 
-140) Warum sollte MongoDB und nicht relationale DB genutzt werden? 
+10)  Warum sollte MongoDB und nicht relationale DB genutzt werden? 
 
-141) Was ist umständlich an MongoDB? 
+11)  Was ist umständlich an MongoDB? 
 
-142) Wieso werden Transaktionen bei MongoDB nicht wirklich benötigt. 
+12)  Wieso werden Transaktionen bei MongoDB nicht wirklich benötigt. 
 
-143) Beschreiben Sie, wann man bei MongoDB bei einem Schreibvorgang keine explizite Transaktion benötigt! 
+13)  Beschreiben Sie, wann man bei MongoDB bei einem Schreibvorgang keine explizite Transaktion benötigt! 
 
-144) Beschreiben Sie, wie man sinnvollerweise interaktiv inspiziert, ob Daten in MongoDB auch wirklich
+14)  Beschreiben Sie, wie man sinnvollerweise interaktiv inspiziert, ob Daten in MongoDB auch wirklich
 eingefügt oder aktualisiert wurden. 
 
-145) Beschreiben Sie, was man unter „Type-Safe Queries“ versteht. 
+1)   Beschreiben Sie, was man unter „Type-Safe Queries“ versteht. 
 
-146) Beschreiben Sie eine Möglichkeit, wie man in einem Spring Profile z.B. „dev“, prinzipiell die Testdaten in der
+2)   Beschreiben Sie eine Möglichkeit, wie man in einem Spring Profile z.B. „dev“, prinzipiell die Testdaten in der
 DB zurücksetzen kann.
 
 # Tests 
 
-147) Was bedeutet „just Runs“ in der Syntax? 
+1)   Was bedeutet „just Runs“ in der Syntax? 
 
-148) Was macht Mocking? 
+2)   Was macht Mocking? 
 
-148) Was macht Funktion „every“? 
+3)   Was macht Funktion „every“? 
 
-149) Was macht die Annotation @Nested? 
+4)   Was macht die Annotation @Nested? 
 
-150) Was macht die Annotation @Order und warum steht in den Klammern von @Order eine 1000? 
+5)   Was macht die Annotation @Order und warum steht in den Klammern von @Order eine 1000? 
 
-151) Was macht die Annotation @Disabled? 
+6)   Was macht die Annotation @Disabled? 
 
-152) Warum und wann sollte getestet werden? 
+7)   Warum und wann sollte getestet werden? 
 
-153) Wofür steht die Annotation @CsvSource? 
+8)   Wofür steht die Annotation @CsvSource? 
 
-154) Nach welcher Funktionalität sollten Testklassen aufgebaut sein orientieren sie sich an CRUD? 
+9)   Nach welcher Funktionalität sollten Testklassen aufgebaut sein orientieren sie sich an CRUD? 
 
-155) Nenne die bekanntesten Testarten und beschreibe Sie! 
+10)  Nenne die bekanntesten Testarten und beschreibe Sie! 
 
-158) Erklären Sie AAA bei Unit-Tests! 
+11)  Erklären Sie AAA bei Unit-Tests! 
 
-160) Warum kann man bei der Testentwicklung in Kotlin von Specificationlike Test sprechen? 
+12)  Warum kann man bei der Testentwicklung in Kotlin von Specificationlike Test sprechen? 
 
-161) Was versteht man unter SoftAssertion 
+13)  Was versteht man unter SoftAssertion 
 
-162) Was ermöglicht uns Kotest? 
+14)  Was ermöglicht uns Kotest? 
 Security 
 
-163) Was ist der Unterschied zwischen Authentifizierung und Autorisierung? 
+1)   Was ist der Unterschied zwischen Authentifizierung und Autorisierung? 
 
-164) Was macht die Annotation @PreAuthorize(„hasRole(‚Rolle‘)“)? 
+2)   Was macht die Annotation @PreAuthorize(„hasRole(‚Rolle‘)“)? 
 
-165) Was ist der Unterschied zwischen einer Rolle und einer Gruppe? 
+3)   Was ist der Unterschied zwischen einer Rolle und einer Gruppe? 
 
-166) Erkläre die Abkürzung SSO! 
+4)   Erkläre die Abkürzung SSO! 
 
 # Logging 
 
-167) Welche Log-Level gibt es und für wen sind diese interessant ? 
+1)   Welche Log-Level gibt es und für wen sind diese interessant ? 
 
-169) Warum {} besser als () ist, erklären Sie anhand diesem Codebeispiel? 
+2)   Warum {} besser als () ist, erklären Sie anhand diesem Codebeispiel? 
 Apache Log4j2 kann Lazy Logging ? 
 
-170) Beschreiben Sie eine Log-datei? 
+1)   Beschreiben Sie eine Log-datei? 
 
-171) Warum ist Trailing Comma ein tolles Feature? 
+2)   Warum ist Trailing Comma ein tolles Feature? 
 
-172) Erklären Sie die Impedance Mismatch? 
+3)   Erklären Sie die Impedance Mismatch? 
 
-173) Beschreiben Sie die 4 Interfaces in Reactive Streams? 
-Codebeispiele 
+4)   Beschreiben Sie die 4 Interfaces in Reactive Streams? 
 
-174) Wo ist hier der Denkfehler im Codefragment ? 
+# Codebeispiele 
 
-175) Schreiben Sie den nachfolgenden Code so um, das Lambda-Ausdrücke verwendet werden. 
+1)   Wo ist hier der Denkfehler im Codefragment ? 
 
-176) Schreiben Sie folgenden Code mit Lambda Ausdrücken. 
+2)   Schreiben Sie den nachfolgenden Code so um, das Lambda-Ausdrücke verwendet werden. 
 
-177) Was ist an folgendem Code schlecht? 
+3)   Schreiben Sie folgenden Code mit Lambda Ausdrücken. 
 
-178) Beschreiben Sie den Code nach der Syntax (Code-Fragment wurde vorgegeben von Router Function) 
+4)   Was ist an folgendem Code schlecht? 
 
-179) Beschreiben Sie folgendes Codebeispiel nach der Semantik
+5)   Beschreiben Sie den Code nach der Syntax (Code-Fragment wurde vorgegeben von Router Function) 
+
+6)   Beschreiben Sie folgendes Codebeispiel nach der Semantik
