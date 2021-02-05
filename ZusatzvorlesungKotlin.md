@@ -1,5 +1,4 @@
-* Anfang nur Folienzusammenfassung, leider erst ab Minute 20 die Vorlesung aufgezeichnet
-
+* Anfang nur Folienzusammenfassung, leider erst ab Minute 20 die Vorlesung aufgezeichn
 # Kotlin
 
 ## Objektorientierung

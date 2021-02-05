@@ -58,237 +58,265 @@ Monolithen führen?
 9)  Wann ist es sinnvoll, den Cache in die Anwendungslogik zu implementieren? 
 * 
 10) Erklären Sie die 4 Eigenschaften des Reactive Manifesto (MRRE)! 
-* 
-11) Grenzen Sie Funktionen, Methoden und Prozeduren voneinander ab! 
+* message driven: Reaktion auf aynchron eingehende Nachrichten
+* resillient: Reaktion auf Ausfälle z.B durh zu viele Requests
+* elastic: Reaktion auf wechselnde Last
+* responsive: Reagieren auf Request schnell und mit hoher Verfügbarkeit
+1)  Grenzen Sie Funktionen, Methoden und Prozeduren voneinander ab! 
 * Methoden sind Funktionen sind Funktionen die auf Objekten aufgerufen werden. 
 12) Was macht die Funktion findById() in der Handler Klasse? 
-* 
+* Die Funktion findById der Handler Klasse wird über den Router aufgerufen und sucht mithilfe des Services das Kundenobjekt mit der zugehörigen Id und baut das Response Objekt. Wenn die Id nich gefunden wurde einen leeren Body mit statuscode NotFound 404, wenn die Id gefunden wurde wird der Body gebaut mit Statuscode 200 im Header
 13) Erklären Sie den Unterschied zwischen Flow und List in Kotlin! 
-
+* bei einer List müssen zum Übertragen der Liste alle Objekte da sein die Elemente eines Flows können nach und nach übertragen werden.
 14) Was ist der Unterschied zwischen einer Menge/Set und einer Liste? 
-
+* Eine Liste hate eine Reihenfolge eine Menge nicht und bei einer Menge dürfen keine Elemente doppelt vorkommen
 15) Was ist der Unterschied zwischen Mutablelist und Flow? 
-
+* selebe wie List Flow
 16) Warum ist es sinnvoll, BigDecimal und nicht float/double zu verwenden? 
-
+* bei BigDecimal werden mehr Nachkommastellen abgebildet also kommt es zu weniger Rundungsfehlern weshalb BigDecimal genauer ist als double
 17) Erklären Sie den Zusammenhang von ETags & If-None-Match bei einem GET-Request & einem wiederholten
 GET-Request! 
+* Wenn der Kunde einen GET-Request macht wird ein E-Tag mitgeschickt welches die Versionsnummer beinhaltet. Bei einem erneuten GET-Request wid das die Versionsnummer mit If-None-Match mitgeschickt, das heißt dem Client werden die Daten nur dann geschickt wennn seine mitgeschickte Versionsnummer ungleich der aktuellen Versionsnummer wenn gleich hat er schon die aktuellsten Daten.
+1)  Erklären Sie ETags! 
 
-39) Erklären Sie ETags! 
+2)  Was ist ein bedingter GET-Request? bedingt→ if 
+* Ein bedingter GET-Request ist ein GET-Request der nur unter einer bestimmten Bedingung ausgeführt wird. Die Bedingung könnte zum Beispiel If-Non-Match
+3)  Wie viele verschiedene Kombinationen gibt es bei 4 Checkboxen? - Klausurfrage 
+* 2^4 = 16
+4)  Unterschied Forward- und Reverse-Proxy? 
+* Ein Forward Proxy ist für einen kontrollierten Zugang zum Internet. Ein Reverse-Proxy nimmt Anfragen aus dem Internet stellvertretend für einen Server an und leitet diese weiter.
+5)  Was sind Servlets und wie werden diese verwaltet? 
 
-40) Was ist ein bedingter GET-Request? bedingt→ if 
-
-41) Wie viele verschiedene Kombinationen gibt es bei 4 Checkboxen? - Klausurfrage 
-
-42) Unterschied Forward- und Reverse-Proxy? 
-
-43) Was sind Servlets und wie werden diese verwaltet? 
-
-44) Erklären Sie die Aussage „Make JAR, not WAR“! - swe schauen 
-
-45) Erläutern Sie, was durch den Produktnamen „Spring Boot“ ausgedrückt werden soll. 
-
-46) Was ist ein Web-Container? 
-
-47) Was macht ein embedded Web-Container? 
-
-48) Was ist Netty? 
-
-49) Unterschied Tomcat und Netty? 
-
-51) Wieso werden Microservices als Anwendungsdatenbank bezeichnet? 
-
-52) Was sind Microservices? 
-
-54) Was sind die Prinzipien von REST? 
-
-55) Nennen Sie 2 MIME-Typen, die bei Microservices häufig verwendet werden! 
-
-56) Erklären Sie IAM anhand von Social Logins! 
-
-57) Was ist der Unterschied zwischen IAM und IDM? 
-
-58) Erklären Sie die Annotation @Bean! 
-@Bean annotiert eine Funktion. Die Funktionen die mit @Bean annotiert sind liefern Objekte, die später zur
-Laufzeit benötigt werden und die zur Laufzeit vom Spring-Container bereitgestellt werden, an den Stellen wo diese
-Objekte benötigt werden. 
-
-59) Erklären Sie den Unterschied zwischen @Bean & @Configuration 
-
-60) Was macht die Annotation @Version? 
-
-61) Erläutern Sie, warum man bei Kotlin-Property, die mit @Version annotiert ist, auch die Annotation @JsonIgnore
+6)  Erklären Sie die Aussage „Make JAR, not WAR“! - swe schauen 
+* bei JAR Dateien befindet sich der Webcontainer im Archiv und wird beim Deployment automatisch mitgestartet. Besser als WAR hier muss das Archiv gabaut werden und dann in einen laufenden Weberver gelegt werden.
+7)  Erläutern Sie, was durch den Produktnamen „Spring Boot“ ausgedrückt werden soll. 
+* Damit wird impliziert das es beim starten "booten" des Server unterstüstzt.
+8)  Was ist ein Web-Container? 
+* Ein Web-Container läuft einem Webserver und ist Laufzeitumgebung für Servlets.
+9)  Was macht ein embedded Web-Container? 
+* Ein Embeded Web-Container ist muss nicht extra gestartet werden er befindert sich im Archiv und wird beim Deployen automatisch gestartet.
+10) Was ist Netty? 
+* Netty ist ein Embeded Web-Container.
+11) Unterschied Tomcat und Netty?s 
+* Netty ist ein Embeded Web-Container Tomacat ein "herkömmlicher" Web-Container. Heißt ein Tomcat muss extra gestartet werden Netty wird in das Archiv integriert
+12) Wieso werden Microservices als Anwendungsdatenbank bezeichnet? 
+* Microservices werden als Anwendungsdatenbanken bezeichnet weil sie sich auf genau einen Geschäftsvorfall beziehen und in der Regel eine eigene Datenbank in der 
+13) Was sind Microservices? 
+* Ein Microservice bildet einen Bounded Context ab und bildet eine Deploymenteinheit. Er fürt genau ein Business Case durch.
+14) Was sind die Prinzipien von REST? 
+* Verwendungung von URIs zur Identifiklation von Ressourcen
+* HTTP-Mehtoden für den Nachrichtenausausch
+* JSON als Übertragungsformat
+1)  Nennen Sie 2 MIME-Typen, die bei Microservices häufig verwendet werden! 
+* application/json
+* application/text/html
+1)  Erklären Sie IAM anhand von Social Logins! 
+* Identity acces Mangement ist die Autorisierung von Benutzern. Bei Social Logins werden externe Plattformen verwendet um die Autorisierung von Benutzern durchzuführen.
+2)  Was ist der Unterschied zwischen IAM und IDM? 
+* IAM ist die Autorisierung von Benutzern also die Verwatlung von deren Rechten. IDM ist Athentifizierung von Benutzern.
+3)  Erklären Sie die Annotation @Bean! 
+* mit @Bean werden Funktionen annotiert die zur Laufzeit benötigt werden und deshalb von Spring vorgeladen werden.
+4)  Erklären Sie den Unterschied zwischen @Bean & @Configuration 
+* eine Funktion die mit @Bean annotiert ist muss zu einer Klasse gehören die mit @Configuration annotiert ist.
+5)  Was macht die Annotation @Version? 
+* Wird vor die Property für die Versionsnummer eines Datensatzes geschrieben damit gibt man die Verwaltung der Versionsnummer an Spring Data weiter.
+6)  Erläutern Sie, warum man bei Kotlin-Property, die mit @Version annotiert ist, auch die Annotation @JsonIgnore
 verwendet wird. 
-
-62) Wieso wird die Annotation @JsonIgnore bei Versionsnummern verwendet? 
-
-63) Wie ist das Hauptprogramm eines Microservices annotiert? 
-
-64) Was besagt Annotation @Component? 
-
-65) Pfad/Query-Parameter, was wird wann genutzt? 
-
-67) Erklären Sie Singletons anhand eines Beispiels! 
-
-68) Was bedeutet Annotation @Service? 
-
-71) Was bedeutet Annotation @JsonPropertyOrder? 
-
-72) Wie heißen Annotationen in C#? 
-
+* Da die Versionsnummer vom Client nicht benötigt wird annotiert man diese mit @JsonIgnore sodass Jackson diese nicht mit in das JSON Objekt schreibt. 
+1)  Wie ist das Hauptprogramm eines Microservices annotiert? 
+* Mit @SpringBootApplication
+2)  Was besagt Annotation @Component? 
+* Damit teilt man Spring mit das die annnotierte Klasse an anderer Stelle für eine Depency Injection genutzt wird.
+3)  Pfad/Query-Parameter, was wird wann genutzt? 
+* Pfad Parameter werden genutzt wenn nur ein Wert oder alles abgefragt wird und wenn der Pfad möglichst kurz sein soll. Wenn eine Abfrage mehrere Parameter hat und für leichtere lesbarkeit Verwendet man Query Parameter
+4)  Erklären Sie Singletons anhand eines Beispiels! 
+* Ein Singelton ist eine Klasse von der es nur eien Instanz geben darf, z.B. von der Service Klasse soll es 
+5)  Was bedeutet Annotation @Service? 
+* Damit teilt man Spring mit das die annnotierte Klasse an anderen für eine Depency Injection genutzt wird, und das es sich um die Service Klasse handelt.
+1)  Was bedeutet Annotation @JsonPropertyOrder? 
+* dadurch wird bestimmt in welcher Reihenfolge Jackson die Attribute einer Klasse verarbeitet. z.B (@JsonPropertyOrder("vorname", "name", "geburtsdtum"));
+2)  Wie heißen Annotationen in C#? 
+* In C# heißen Anootationen Attribute
 # Kotlin 
 
 73) Was sind die Ziele von Kotlin? 
-
-74) Nennen sie 4 Vorteile von Kotlin? 
-
+* wenig und leicht verständlicher Code.
+* einfache Nutzung von fremdbibliotheken
+* Kompatibilität mit anderen Programmiersprachen
+* gute Werkzeugunterstützung
+1)  Nennen sie 4 Vorteile von Kotlin? 
+* smart cast satt type cast
+* Kotlin ist nullsafe außer man konfiguriert das Wert Null angenommen werden kann
+* Keine Semikolons am Zeilenende
+* Named Parameter statt Builder Pattern
 75) Nenne 4 typische Anfängerfehler in der Entwicklung? 
+* keine selbsterklärenden Namen werden verwendet
+* falsche Codeformatierung 
+* keine oder fehlerhafte kommentare
+1)  Wie erstellt man ein „immutable“ Objekt in Kotlin? 
+* Objekte in Kotlin sind standardmäßig immutable
+2)  Wie erstellt man ein „immutable“ Property in Kotlin? 
+* Eine immutable Proberty erstell man in Kotlin mit dem Stichwort val. Bsp. val name = ...
+3)  Erklären Sie die Funktionsweise von „Extension functions“ bei Kotlin?
+* Mit Extension Functions kann man Klassen nachträglich um Funktionalität ergängzen ohne dabei die Klasse selbst zu ändern
+4)  Wie wird die Funktionalität von Extension Functions (Kotlin) in C# realisiert?
+* Extension Functions Functions werden in C# durch Extentions Methods realisiert.
+5)  Wie lautet die Reihenfolge der Variablendeklaration? 
+* Frage ist dumm
+6)  Was ist eine Higher-Order Function? – KlausurFrage
+* Eine Higher-Order Function ist eine Funktion die als Parameter eine andere Funktion entgegenimmt oder als Rückgabewert.
+7)  Wieso braucht man Lambda-Ausdrücke in Higher-Order Functions?
+* Mit Lambda-Ausdrücken kann man anonyme Funktionen als Parameter für Higher-Order Funtions
+8)  Was sind pure functions? – phase6 15
+* pure function sind Funktionen die beim selben Eingabewert immer den selben Rückgabewert liefern. z.B. Funktion zur Berechnung der Mehrwertsteuer.
+9)  Erklären Sie eine Single Expression Function anhand eines Beispiels! - KlausurFrage 
+* Eine Single Expression Function ist eine Funktion die nur einen Ausdruck hat. Bsp: fun function(val number) = number * 5
+10) Erklären Sie Syntax & Semantik des folgenden Codefragments: 
 
-76) Wie erstellt man ein „immutable“ Objekt in Kotlin? 
+11) Erklären Sie die Semantik der folgenden Codezeilen: 
 
-77) Wie erstellt man ein „immutable“ Property in Kotlin? 
+12) Nennen Sie 4 Aspekte guter Codequalität
+* sinnvolle leicht zu verstehende Namen
+* einheitliche Einrückung
+* sinnvolle verständliche Kommentare
+* gute Dateistrukturierung innerhalb eines Projekts.
+13) Was ist Type Aliases? 
+* Vergeben von anderen Namen für einen Typen. Dieser Name kann dan anstelle des Typen verwendet werden.
+14) Was macht die Funktion retrieve()? 
 
-78) Erklären Sie die Funktionsweise von „Extension functions“ bei Kotlin?
-
-79) Wie wird die Funktionalität von Extension Functions (Kotlin) in C# realisiert?
-
-80) Wie lautet die Reihenfolge der Variablendeklaration? 
-
-81) Was ist eine Higher-Order Function? – KlausurFrage
-
-82) Wieso braucht man Lambda-Ausdrücke in Higher-Order Functions?
-
-83) Was sind pure functions? – phase6 15
-
-84) Erklären Sie eine Single Expression Function anhand eines Beispiels! - KlausurFrage 
-
-85) Erklären Sie Syntax & Semantik des folgenden Codefragments: 
-
-86) Erklären Sie die Semantik der folgenden Codezeilen: 
-
-87) Nennen Sie 4 Aspekte guter Codequalität -phase6 
-
-88) Was ist Type Aliases? 
-
-89) Was macht die Funktion retrieve()? 
-
-90) Was macht die Funktion runBlocking{}?
-
-91) Wie geht Kotlin mit null-Status um?* - Klausur-Frage 
-
-92) Erklären Sie den Safe Call Operator? 
-
-93) Erläutern Sie, wie man in Kotlin anders als in C# programmieren kann, weil es if-Ausdrücke gibt. 
-
-94) Erläutern Sie, warum suspendierbare Funktionen von Kotlin besser sind um„reactive“ zu programmieren. -
+15) Was macht die Funktion runBlocking{}?
+* runBlocking{} blockiert die Ausführung eines Threads bis die Coroutinene fertig sind.
+16) Wie geht Kotlin mit null-Status um?* - Klausur-Frage 
+* In standardmäßig nichts den Wert null annehmen der Wert null kannn nur dann angenommmen werden wenn wir den Code so schreiben das etwas null sein darf.
+17) Erklären Sie den Safe Call Operator? 
+* MIt dem Safe Calll Operator wird geprüft ob etwas den Wert null hat, eine weiter Operation wird nur durchgeführt wenn es nicht den Wert null hat.
+18) Erläutern Sie, wie man in Kotlin anders als in C# programmieren kann, weil es if-Ausdrücke gibt. 
+* Man kann if Ausdrücke rechts vom Gleichheitszeichen schreiben
+19) Erläutern Sie, warum suspendierbare Funktionen von Kotlin besser sind um„reactive“ zu programmieren. -
 KlausurFrage 
-
+* Suspendierbare Funktionen können unterbrochen und später fortgesetzt werden damit lässt sich die nicht blockierende Verarbeitung die bei reactive Programming angenommen wird gut umsetzen.
 95) Was ist eine SAM? 
-
+* eine Singel Abstract Method ist ein funktionales Interface mit genau einer Methode.
 96) Was ist ein Companion Object? 
-
+* Ein Singelton das zu einer Klassse gehört wird statt static verwendet.
 97) Was ist eine Kotlin Coroutine? 
-
-98) Erläutern Sie, wie man prinzipiell “Sealed Classes“ statt Exception zur Fehlerb.?- Klausur-Fragen 
-
+* leichtgewichte benutzerlevel Threads werden in Kotlin zur Umsetzung nicht blockierender Verabeitung genutzt.
+98) Erläutern Sie, wie man prinzipiell “Sealed Classes“ statt Exception zur Fehlerb. verwendet?- Klausur-Fragen 
+* Man definiert eine Klasse für den Fehler und für den erfolgreichen Fall statt try und catch Blöcke in denen man Exception fängt vewendet man diese Klassen.
+ 
 # Grundlegende Konzepte heutiger Softwareentwicklung 
 
 99) Was sind die grundlegenden Konzepte heutiger Softwareentwicklung? 
-
+* Dependeny Injections
+* Convention over Configuration
+* funktionale Programmierung 
+* Builder Pattern
 100) Was ist eine Dependency Injection (DI) anhand eines Beispiels in ihrem Projekt? 
+* Bei einer Depency Injection wird eine Instanz einer Klasse in den Konstruktor einer anderen Klasse injiziert.
+* class MitarbeiterHandler(private val service: MitarbeiterService){...}
+1)   Was bedeutet Inversion of Control (IoC)? 
+* Abgeben der Kontrolle an eine Plattform, z.B Spring.
+2)   Warum sollte Dependency Injection, die Constructor Injection und nicht die Field Injection nutzen? 
+* Bei der Constructor Injection kann man die Abhängigkeiten der Klasse leichter sehen, da direkt im Konstruktor der Klasse. Und im Gegensatz zur Field Injection kann es bei der Constructor Injection keine endlos Rekursion geben.
+3)   Was bedeutet Convention over Configuration (CoC)? 
+* Wir haben sinnvolle Defaultwerte sodass wir nur noch Ausnahmefälle konfigurieren müssen. Configuration by Exception.
+4)   Erklären Sie Convention over ConfigurationW (CoC) am Beispiel von JSON und Kotlin Objekten! 
+* Bei Jackson werden Standarmäßig alle Werte transformiert außer solche die wir mit @JsonIgnore annotiern.
+5)   Wann verwendet man Jackson? 
+* Jackson wird verwendet um JSON-Objekte in Kotlin-Obejekte zu konvertieren und umgekehrt.
+6)   Was versteht man unter dem Builder Pattern + Bsp im eigenen Projekt?
+* Unter dem Builder Pattern versteht man die Verkettung von Funktionen. return ok().bodyValueAndAwaiit(Mitarbeiter)
+7)   Wieso sind Named Parameters besser als das Builder Pattern? 
+* Named Parameter sind leichter verständlich und unabhängig von der Reihenfolge in der sie definiert wurden.
+8)   Erklären Sie das LIFT-Prinzip! 
+* L ocating our code is easy
+* I dentify code at a glance 
+* F lat structure as long as we can
+* T ry to stay DRY (Dont Repeat Yourself)
+* 
+# Statuscodes 
 
-101) Was bedeutet Inversion of Control (IoC)? 
-
-102) Warum sollte Dependency Injection, die Constructor Injection und nicht die Field Injection nutzen? 
-
-102) Was bedeutet Convention over Configuration (CoC)? 
-
-103) Erklären Sie Convention over Configuration (CoC) am Beispiel von JSON und Kotlin Objekten! 
-
-105) Wann verwendet man Jackson? 
-
-106) Was versteht man unter dem Builder Pattern + Bsp im eigenen Projekt?
-
-107) Wieso sind Named Parameters besser als das Builder Pattern? 
-
-108) Erklären Sie das LIFT-Prinzip! 
-Statuscodes 
-
-109) Welche Statuscodes kommen bei einem fehlgeschlagenen POST Request bzw. PUT-Request zurück? 
-
-110) Was geben die Statuscodes 200,201, 204 zurück. Nenne auch die aufgerufene HTTP-Methoden. -phase6 
-
-111) Erklären Sie das Zusammenspiel von Client und Server! 
-Authentifizierungsverfahren 
-
-112) Nenne 2 Authentifizierungsverfahren bei RESTful Webservices! 
-
-113) Wieso ist es bei verteilten Systemen mit Microservices problematisch BASIC-Authentifizierung zu
+1)   Welche Statuscodes kommen bei einem fehlgeschlagenen POST Request bzw. PUT-Request zurück? 
+* ein passender 400 er code oder 500 wenn es sich um einen internen Fehler handelt
+2)   Was geben die Statuscodes 200,201, 204 zurück. Nenne auch die aufgerufene HTTP-Methoden. -phase6 
+* 200 ist ok kommt z.B bei einem GET Request zurück. 201 created, bei einem erlorgreich post request , 204 no content kommt bei einem erlogreichen put oder patch request zurück
+3)   Erklären Sie das Zusammenspiel von Client und Server!  
+* Der Client schickt eine Anfrage in Form eines HTTTP-Request an den Server der Server verarbeitet den Request und sendet einen Response dessen Header enthält enthält Info darüber ob der Reques erfolrgreich war in Form eines Statuscodes
+4)   Nenne 2 Authentifizierungsverfahren bei RESTful Webservices! 
+* Anmelden mit Eingabe von Benutzerkennung und Passwort
+* Anmelden durch mitsenden eines Tokens
+5)   Wieso ist es bei verteilten Systemen mit Microservices problematisch BASIC-Authentifizierung zu
 verwenden? 
-
-114) Wie funktioniert Token?
-     
+* bei jedem Request an einen der Microservices müsste man erneut Benutzername und Passwort mitsenden.
+1)   Wie funktioniert Token?
+* Ein Token enthält einen Schlüssel und eine Gültigkeitsdauer, man sendet das Token mit dem Request mit. Das Token wird validiert und der Client is eingeloggt solange das Token gültig.
 # HATEOAS 
 
 1)   Erläutern Sie HATEOAS mit Beispielen von Unternehmen wie PayPal, Facebook, …! 
-
+* Bei HAtEOAS werden mit dem Request links mit gesendet entweder in Form von Atom-Links oder Link-Header. Bei Paypal zum Beispiel wird bei einer ausgeführten Zahlung direkt der Link zum Beleg der Zahlung mitgesendet.
 2)   Erklären Sie den Unterschied zwischen Atom-Links & Link-Header! 
-
+* Atom-Links sind selbserklärende URIs im Body des Respomse, Link-Header sind selbserklärende URIs im Header des Response
 3)   Erkläre Unterschied zwischen URI und URL! 
-
+* URI ist ein eindeutiger bezeichner für eine Ressource. Bei einer URL ist zusätzlich noch die Information enthalten wie auf die Ressource zugergriffen werden kann. Jede URL ist auch eine URI aber nicht umgekehrt
 4)   Was ist der Unterschied zwischen Structural Links & Transitional Links? 
 Datenbankzugriff und Spring Data (MongoDB) 
 
 1)   Was heißt eventually consistent? 
-
+* Mehrere Datenbank sollen untereinader Konsistenz sein aber nicht sofort sondern nur irgendwann zu einem späteren Zeitpunkt
 2)   Erklären Sie die Funktionsweise bei optimistischen DB-Transaktionen!
-
+* Bei optimistischen Datenbanktransktionen wird die Ressource nicht gesperrt sondern es kann auch von anderen Request auf die Ressource zugegriffen.
 3)   Wieso ist es bei verteilten Systemen sinnvoll keine pessimistische Synchronisation zu verwenden? 
-
+* weil wir bei peseimistischen Transaktionen über mehrere Microservices hinweg eine Ressource blockieren müssten was extrem aufwändig ist
 4)   Erläutern Sie, was passiert, wenn auf optimistische Synchronisation verzichtet wird und eine
 konkurrierende Änderung schneller erfolgt als die eigene Änderung: Update - Update 
-
+* die eigene Änderung kann nicht durchgeführt werden weil die Ressource blockiert ist.
 1)   Erläutern Sie, was passiert, wenn auf optimistische Synchronisation verzichtet wird und ein konkurrierendes
 Löschen schneller erfolgt als die eigene Änderung: Update - Delete 
-
+* dann wird der Datensatz neu angelegt mit der Änderung.
 1)   Erläutern Sie, was passiert, wenn auf optimistische Synchronisation verzichtet wird und eine
 konkurrierende Änderung schneller erfolgt als die eigene Löschen: Delete - Update 
-
+* Der Datensatz wird erst geändert dann gelöscht.
 1)   Erläutern Sie, was passiert, wenn auf optimistische Synchronisation verzichtet wird und ein konkurrierendes
 Löschen schneller erfolgt als das eigene Löschen. Delete - Delete 
-
+* Dafür vorlesung ansehen
 1)   Wie beschreibt man Abhängigkeiten in SQL bzw. MongoDB? 
-
+* in SQL mit Fremdschlüsseln, MongoDB mit Embedded Documents
 2)   Nennen Sie zu Collection, Document & Embedded Document, die dazugehörigen Gegenstücke in
 relationalen DB-Systemen. 
-
+* Collection - Tabelle
+* Document - Tabellenzeile
+* Embeded Document - Fremdschlüssel
 1)   Unterschiede von MongoDB & relationaler DB? 
-
+* Field in  Mongo - Spalte in relationaler DB
+* sparse in Mongo - Null in relationaler Db
+* Progammatische Queries - SQL
 2)   Was ist das Schema bei relationalen Datenbanken? 
+* Das Schema ist das CRREATE Table
+1)   Erklären Sie die Unterschiede zwischen relational und objektorientiert! 
+* relational mehrere Tablenen die Über Fremdschlüssel referenziert werden. Objektorientiert ein Objekt mit untergeordneteten Objekten
+2)   3 Unterschiede zwischen REST und DDD? 
+* REST Uris vs DDD Ids
+* REST E-Tag vs DDD Version
+* RESt link vs DDD Relation
+3)   Wie werden Beziehungen in rel. DB, JSON Documents & Kotlin Objekten realisiert? 
+* Bei relationalen DBs durch Fremdschlüssel bei, JSON durch Embedded Documents, bei Kotlin durch Referenzen.
+4)   Wann benutzt man ReactiveCrudRepository & wann ReactiveMongoOperations? 
+* 
+5)   Vergleichen Sie die Abfrage einer relationalen DB mit der Abfrage in MongoDB! 
+* 
+6)   Erklären Sie 2 Pattern aus DDD, die bei Spring Data ähnlich verwendet werden? 
 
-3)   Erklären Sie die Unterschiede zwischen relational und objektorientiert! 
+7)   Beschreiben Sie die 4 Stores von NoSQL-Systemen! 
 
-4)   3 Unterschiede zwischen REST und DDD? 
+8)   Warum sollte MongoDB und nicht relationale DB genutzt werden? 
 
-5)   Wie werden Beziehungen in rel. DB, JSON Documents & Kotlin Objekten realisiert? 
+9)   Was ist umständlich an MongoDB? 
 
-6)   Wann benutzt man ReactiveCrudRepository & wann ReactiveMongoOperations? 
+10)  Wieso werden Transaktionen bei MongoDB nicht wirklich benötigt. 
 
-7)   Vergleichen Sie die Abfrage einer relationalen DB mit der Abfrage in MongoDB! 
+11)  Beschreiben Sie, wann man bei MongoDB bei einem Schreibvorgang keine explizite Transaktion benötigt! 
 
-8)   Erklären Sie 2 Pattern aus DDD, die bei Spring Data ähnlich verwendet werden? 
-
-9)   Beschreiben Sie die 4 Stores von NoSQL-Systemen! 
-
-10)  Warum sollte MongoDB und nicht relationale DB genutzt werden? 
-
-11)  Was ist umständlich an MongoDB? 
-
-12)  Wieso werden Transaktionen bei MongoDB nicht wirklich benötigt. 
-
-13)  Beschreiben Sie, wann man bei MongoDB bei einem Schreibvorgang keine explizite Transaktion benötigt! 
-
-14)  Beschreiben Sie, wie man sinnvollerweise interaktiv inspiziert, ob Daten in MongoDB auch wirklich
+12)  Beschreiben Sie, wie man sinnvollerweise interaktiv inspiziert, ob Daten in MongoDB auch wirklich
 eingefügt oder aktualisiert wurden. 
 
 1)   Beschreiben Sie, was man unter „Type-Safe Queries“ versteht. 
