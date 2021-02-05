@@ -30,46 +30,48 @@ If-Anweisungen/When-Anweisungen/Try-Catch-Anweisungen?
 Monolithen führen? 
 * Die Ursachen für die Entstehung von Big Data sind, IoT, Social Media, Process Mining. Bei Monlithen sorgt die Menge und die große Anzahl an Unterschiedlichen Datenformaten für Probleme. Durch Speicherung von all dem auf einer Datenbank wird der Zugriff immer langsmer.
 1)  Warum sollten .yml-Dateien (YAML) für Konfiguration benutzt werden (Vorteil)? 
-* YAML ist leichtgewichter, leichter lessbar, und mächtiger als z.B XML.
+* YAML ist leichtgewichter, leichteer lessbar als Vergleichbare Alternativen z.B XML. YAML hat mächtige Ausdrucksmöglichkeiten und zwischen vielen Programmiersprachen portabel
 1)  Welche Nachteile haben .yml-Dateien? 
-
+* 
 2)  Was ist Backpressure? 
-
+* Backpressure ist der Umgang mit Überlast wenn zu viele Anfragen eigehen. Der Publisher produziert nur bis zu einer Obergrenze der Subscriber abboniert nur bis zu einer Obergrenze. Alle Anfragen die über diese Grenzen gehen werden entweder zurückgewiesen oder an andere Server mit freien Kapazitäten weitergeleitet.
 3)  Beschreiben Sie 3 Vorteile, die IntelliJ IDEA im Vergleich mit Editoren, wie Notepad++ hat? 
+* Refactoring: Um Klassennamen nachträglich zu ändern
+* Autovervollständigung von Variablennamen.
+* Codenavigation: mit Steurung+Linksklick auf einen Variablen/Klassennamen kommt man zu deren Definiion.
+1)  Vorteile von IntelliJ - IDE?
 
-4)  Vorteile von IntelliJ - IDE?
+2)  Was sind “one-way-functions” ? 
+* Funktionen die keine Inverse besitzten, also injektiv sind.
+3)  Erklären Sie nicht-blockierende Verarbeitung! 
+* Bei der nicht blockierenden Vearbeitung warten Threads wenn sie eine Anfrage an ein externe Ressource stellen nicht auf das Ergebniss sondern können direkt die nächste Anweisung durchführen.
+4)  Warum sollte asynchron statt imperativ programmiert werden? 
+* Wenn man erwartet das die eigene Anwendung sehr viele Anfragen bekommt sollte asynchron entwickelt werden. Oder wenn man nicht auf den Eingang von Ergebissen warten möchte sondern diese nach und nach als Stream versendet/bekommt.
+5)  Erläutern Sie, warum nicht jede Server-Anwendung „reactive“ entwickelt wird! - KlausurFrage 
+* Wenn ein Anwendung mit imperativer Programmierung keine Probleme mit der Skalierung hat gibt es keinen Grund diese reactive zu entwickeln.
+6)  Erläutern Sie Probleme bei Reactive Programming!* - KlausurFrage 
+* bei einzelenen Requests langsamer als imperative Programmierung. Thread Management deutlch aufwändiger als bei imperativen Programmierung.
+7)  Erklären Sie was ein Stacktrace ist.- Klausur-Frage 
+* Im Stacktrace werden alle Anweisung des Stacks in der Reihenfolge wie sie ausgführt wurden gelistet.
+8)  Vergleichen Sie Boundary Control Entity & Schichtenarchitektur? 
+* 
+9)  Wann ist es sinnvoll, den Cache in die Anwendungslogik zu implementieren? 
+* 
+10) Erklären Sie die 4 Eigenschaften des Reactive Manifesto (MRRE)! 
+* 
+11) Grenzen Sie Funktionen, Methoden und Prozeduren voneinander ab! 
+* Methoden sind Funktionen sind Funktionen die auf Objekten aufgerufen werden. 
+12) Was macht die Funktion findById() in der Handler Klasse? 
+* 
+13) Erklären Sie den Unterschied zwischen Flow und List in Kotlin! 
 
-5)  Was sind “one-way-functions” ? 
+14) Was ist der Unterschied zwischen einer Menge/Set und einer Liste? 
 
-6)  Erklären Sie nicht-blockierende Verarbeitung! 
+15) Was ist der Unterschied zwischen Mutablelist und Flow? 
 
-7)  Warum sollte asynchron statt imperativ programmiert werden? 
+16) Warum ist es sinnvoll, BigDecimal und nicht float/double zu verwenden? 
 
-8)  Erläutern Sie, warum nicht jede Server-Anwendung „reactive“ entwickelt wird! - KlausurFrage 
-
-9)  Erläutern Sie Probleme bei Reactive Programming!* - KlausurFrage 
-
-10) Erklären Sie was ein Stacktrace ist.- Klausur-Frage 
-
-11) Vergleichen Sie Boundary Control Entity & Schichtenarchitektur? 
-
-12) Wann ist es sinnvoll, den Cache in die Anwendungslogik zu implementieren? 
-
-13) Erklären Sie die 4 Eigenschaften des Reactive Manifesto (MRRE)! 
-
-14) Grenzen Sie Funktionen, Methoden und Prozeduren voneinander ab! 
-
-15) Was macht die Funktion findById() in der Handler Klasse? 
-
-16) Erklären Sie den Unterschied zwischen Flow und List in Kotlin! 
-
-17) Was ist der Unterschied zwischen einer Menge/Set und einer Liste? 
-
-18) Was ist der Unterschied zwischen Mutablelist und Flow? 
-
-19) Warum ist es sinnvoll, BigDecimal und nicht float/double zu verwenden? 
-
-20) Erklären Sie den Zusammenhang von ETags & If-None-Match bei einem GET-Request & einem wiederholten
+17) Erklären Sie den Zusammenhang von ETags & If-None-Match bei einem GET-Request & einem wiederholten
 GET-Request! 
 
 39) Erklären Sie ETags! 
