@@ -86,7 +86,7 @@ GET-Request!
 4)  Unterschied Forward- und Reverse-Proxy? 
 * Ein Forward Proxy ist für einen kontrollierten Zugang zum Internet. Ein Reverse-Proxy nimmt Anfragen aus dem Internet stellvertretend für einen Server an und leitet diese weiter.
 5)  Was sind Servlets und wie werden diese verwaltet? 
-
+* Servlet sind kleine Anwendungen basierend auf Java Klassen die in einem Web-Container laufen
 6)  Erklären Sie die Aussage „Make JAR, not WAR“! - swe schauen 
 * bei JAR Dateien befindet sich der Webcontainer im Archiv und wird beim Deployment automatisch mitgestartet. Besser als WAR hier muss das Archiv gabaut werden und dann in einen laufenden Weberver gelegt werden.
 7)  Erläutern Sie, was durch den Produktnamen „Spring Boot“ ausgedrückt werden soll. 
@@ -98,7 +98,7 @@ GET-Request!
 10) Was ist Netty? 
 * Netty ist ein Embeded Web-Container.
 11) Unterschied Tomcat und Netty?s 
-* Netty ist ein Embeded Web-Container Tomacat ein "herkömmlicher" Web-Container. Heißt ein Tomcat muss extra gestartet werden Netty wird in das Archiv integriert
+* Netty ist leichtgewichtiger Tomcat.
 12) Wieso werden Microservices als Anwendungsdatenbank bezeichnet? 
 * Microservices werden als Anwendungsdatenbanken bezeichnet weil sie sich auf genau einen Geschäftsvorfall beziehen und in der Regel eine eigene Datenbank in der 
 13) Was sind Microservices? 
@@ -301,83 +301,100 @@ relationalen DB-Systemen.
 3)   Wie werden Beziehungen in rel. DB, JSON Documents & Kotlin Objekten realisiert? 
 * Bei relationalen DBs durch Fremdschlüssel bei, JSON durch Embedded Documents, bei Kotlin durch Referenzen.
 4)   Wann benutzt man ReactiveCrudRepository & wann ReactiveMongoOperations? 
-* 
+* ReactiveCrudRepository benutzt man für den Zugriff auf eine relationale Datenbandk. ReactiveMongoOperations benutzt man für den Zugriff auf ein Monogo Datenbank.
 5)   Vergleichen Sie die Abfrage einer relationalen DB mit der Abfrage in MongoDB! 
-* 
-6)   Erklären Sie 2 Pattern aus DDD, die bei Spring Data ähnlich verwendet werden? 
+* Bei einer Abfrage in Mongo DB sind keine Tranksaktionen notwendig bei  außer beim Zugriff auf mehrere Documents gleichzietig, bei raltionalten DBs immer. Bei relationalen DB gibt es eine Query Language bei MongoDB funktionale Queries.
+1)   Erklären Sie 2 Pattern aus DDD, die bei Spring Data ähnlich verwendet werden? 
 
-7)   Beschreiben Sie die 4 Stores von NoSQL-Systemen! 
-
-8)   Warum sollte MongoDB und nicht relationale DB genutzt werden? 
-
-9)   Was ist umständlich an MongoDB? 
-
-10)  Wieso werden Transaktionen bei MongoDB nicht wirklich benötigt. 
-
-11)  Beschreiben Sie, wann man bei MongoDB bei einem Schreibvorgang keine explizite Transaktion benötigt! 
-
-12)  Beschreiben Sie, wie man sinnvollerweise interaktiv inspiziert, ob Daten in MongoDB auch wirklich
+2)   Beschreiben Sie die 4 Stores von NoSQL-Systemen! 
+* Document Store, Daten werden in Dokumenten gespeichert meisten in Form von JSON Objekten
+* Key-Value Store: Speichern von Key Value Paaren in einem BLOB
+* Column Sotore: Speichern von Datensätzen in Zeilen
+* Graph Database: Darstellung von Daten durch Beziehungen zwischen Knoten
+3)   Warum sollte MongoDB und nicht relationale DB genutzt werden? 
+* hoch skalierbar
+* mächtige Query Syntax
+* asynchroner Zugirff auf MongoDB möglich
+* JSON-Schema möglich aber nicht notwendig
+4)   Was ist umständlich an MongoDB? 
+* Join über mehrere Dokumente nur schwer möglich bis unmöglich
+* keine Qeury Language
+1)   Wieso werden Transaktionen bei MongoDB nicht wirklich benötigt. 
+* Weil wir im normalfall nur Änderungen auf einem Dokument durchführen
+2)   Beschreiben Sie, wann man bei MongoDB bei einem Schreibvorgang keine explizite Transaktion benötigt! 
+* wenn der Schreibvorgang nur auf einem Dokument durchgeführt wird
+3)   Beschreiben Sie, wie man sinnvollerweise interaktiv inspiziert, ob Daten in MongoDB auch wirklich
 eingefügt oder aktualisiert wurden. 
-
+* Durch betrachten der Daten mit einem Werkzeug wie MongoDB Compass
 1)   Beschreiben Sie, was man unter „Type-Safe Queries“ versteht. 
-
+* Bei Vergleichen Value Objects statt Strings bnenutzen
 2)   Beschreiben Sie eine Möglichkeit, wie man in einem Spring Profile z.B. „dev“, prinzipiell die Testdaten in der
 DB zurücksetzen kann.
-
+* Beim Starten wird das Profile überprüft und jenach Profile wird die Datenbank zurückgesetzt oder halt nicht.
 # Tests 
 
 1)   Was bedeutet „just Runs“ in der Syntax? 
-
+* der Test soll nur durchlaufen das Ergebnis ist egal der die Funktion hat keinen Rückgabewert
 2)   Was macht Mocking? 
-
+* Mocking täuscht einen Datenbankzugriff vor und es werden Testdaten eingelesen
 3)   Was macht Funktion „every“? 
-
+* Higher-Order Function definiert welches verhalten gemockt werden soll
 4)   Was macht die Annotation @Nested? 
-
+* Dadurch wird die Schachtelung von Testklasse ermöglicht
 5)   Was macht die Annotation @Order und warum steht in den Klammern von @Order eine 1000? 
-
+* Mit @Order wird die Reihenfolge der Tests festgelegt. @Order(1000) deshalb da noch genug Platz ist um neue Tests einzufüggen
 6)   Was macht die Annotation @Disabled? 
-
+* Mit @Disabled wird ein test deaktiviert
 7)   Warum und wann sollte getestet werden? 
-
+* Getestet werden sollte immer dann wenn eine Komponente fertig ist. Testen ist wichtig um die Funktionalität zu Überprüfen.
 8)   Wofür steht die Annotation @CsvSource? 
-
+* Bei Prametrisierten Test auslesen der Werte aus einer CSV Datei
 9)   Nach welcher Funktionalität sollten Testklassen aufgebaut sein orientieren sie sich an CRUD? 
-
+* Frage ist lost testen orientiert sich nicht an CRUD
 10)  Nenne die bekanntesten Testarten und beschreibe Sie! 
-
+* Unit-Test: Testen von kleinen Funktionalitäten, Unit Tests sind voneinander unabhängig
+* Integrationtest: Testen der Integration von Komponenten 
+* End-to-End Test: Tests über das gesamte System angefangen mit der Benutzerschnittstelle
 11)  Erklären Sie AAA bei Unit-Tests! 
-
+* arrange: setzen der vorraussetzungen und erwarteten Ergebnisse für die Tests
+* act: ausführen der eigentlichen Tests.
+* assort: Testergebnisse mit den erwarteten Ergebnissen vergeleichen
 12)  Warum kann man bei der Testentwicklung in Kotlin von Specificationlike Test sprechen? 
-
+* Im Funktionsnamen kann abgelesen werden was getestet wird.
 13)  Was versteht man unter SoftAssertion 
-
+* Wenn einer der Tests fehlschlägt bricht nicht alles ab sondern asführung geht weiter am Ende werden die nicht erfolgreichen Tests angezeigt.
 14)  Was ermöglicht uns Kotest? 
-Security 
-
+* Überprüfung von Testergebnissen mit Hilfe von Infix Opreatoren
+# Security 
+  
 1)   Was ist der Unterschied zwischen Authentifizierung und Autorisierung? 
-
-2)   Was macht die Annotation @PreAuthorize(„hasRole(‚Rolle‘)“)? 
-
-3)   Was ist der Unterschied zwischen einer Rolle und einer Gruppe? 
-
-4)   Erkläre die Abkürzung SSO! 
-
+* Authentifizierung ist das einloggen von Benutzern, Autorisierung die Überprüfung von den Zugriffsrechten eines Benutzers
+1)   Was macht die Annotation @PreAuthorize(„hasRole(‚Rolle‘)“)? 
+* Dadurch wird festgelegt das eine Funktion nur mit der in der Klammer spezifizierten Rollle ausgeführt werden kann.
+1)   Was ist der Unterschied zwischen einer Rolle und einer Gruppe? 
+* Eine Rolle ist eine Menge von Zugriffsrechten die einem Benutzer zugewiesen werden kann eine Gruppe ist eine Menge von Benutzerkennungen.
+2)   Erkläre die Abkürzung SSO! 
+* Single Sign on, nur eine Anmeldung danach ist man im ganzen Cluter angemeldet
 # Logging 
 
 1)   Welche Log-Level gibt es und für wen sind diese interessant ? 
-
-2)   Warum {} besser als () ist, erklären Sie anhand diesem Codebeispiel? 
+* FATAL - Fatale errors, führen zu absturz, Entwickler, Admin
+* ERROR - Fehler die aber nicht zu Absturz führen müssen, Entwickler,Admin
+* WARNING - Noch kei Fehler kann aber zu einem Fehler führen, Entwickler,Admin
+* INFO - Information über Ablauf einer Funktion, start des Servers, Admin
+* DEBUG - wen angefragt zeigt an welche Fehler wo passieren, Entwickeler
+* TRACE, Entwickler
+1)   Warum {} besser als () ist, erklären Sie anhand diesem Codebeispiel? 
 Apache Log4j2 kann Lazy Logging ? 
-
+* Wenn () wird erst dann geladen wenn gebraucht werden
 1)   Beschreiben Sie eine Log-datei? 
-
-2)   Warum ist Trailing Comma ein tolles Feature? 
-
-3)   Erklären Sie die Impedance Mismatch? 
-
-4)   Beschreiben Sie die 4 Interfaces in Reactive Streams? 
-
+* Ein Eintrag in Lodatei besteht aus Zeitstempel loglevel Packagename Message Rechnername und Prozess Id.
+1)   Warum ist Trailing Comma ein tolles Feature? 
+* Man kann die einzelnen Bestandteile vertauschen und neue Sachen hinzufügen ohne das Fehler durch vergessene Kommas passieren 
+1)   Erklären Sie die Impedance Mismatch? 
+* Bei Umwadeln von n zu n Beziehungen von Objektorientiert zu relational müssen für eine korrekte Abbildung Zwischetabellen angelegt werden.
+1)   Beschreiben Sie die 4 Interfaces in Reactive Streams? 
+* 
 # Codebeispiele 
 
 1)   Wo ist hier der Denkfehler im Codefragment ? 
