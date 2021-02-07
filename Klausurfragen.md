@@ -398,13 +398,44 @@ Apache Log4j2 kann Lazy Logging ?
 # Codebeispiele 
 
 1)   Wo ist hier der Denkfehler im Codefragment ? 
-
+# 
+        @Test
+        fun foo () {
+        ..
+        val result: Kunde = foo()   
+        assertThat(result).isNotNull()
+        }
+* Die Variable result kann den Wert Null nicht annehmen somit ist die Prüfung mit .istNotNull() hier überflüssig.
 2)   Schreiben Sie den nachfolgenden Code so um, das Lambda-Ausdrücke verwendet werden. 
-
-3)   Schreiben Sie folgenden Code mit Lambda Ausdrücken. 
-
+#
+        val kunden = listOf(...)
+        val namen = mutableListOf<String>()
+        for (k in kunden){
+        if (k.umsatz > 1000 ){
+        namen.add(k.name)
+        } }
+* kunden.filter(it.umsatz > 1000).forEach{namen.add(it.name)}
 4)   Was ist an folgendem Code schlecht? 
-
-5)   Beschreiben Sie den Code nach der Syntax (Code-Fragment wurde vorgegeben von Router Function) 
-
-6)   Beschreiben Sie folgendes Codebeispiel nach der Semantik
+#
+        fun sendMessage(user: User,
+                        body: String, time: LocalDateTime?) =
+            sendMessage(user, body, null)
+* Die Funktion sendMessage ruft sich im Rumpf selbst auf was zu einer Endlosrekursion führt
+5)   Beschreiben Sie den Code nach der Syntax und der Semantik (Code-Fragment wurde vorgegeben von Router Function) 
+#
+        @Configuration
+        class Routes (private val handler: KundeHandler) {
+        @Bean
+        fun router() = router {
+        "/".nest {
+        GET("/", handler::find)
+        } } }
+### Syntax
+* es wird eine Klasse Routes erstellt die mit @Configuration annotiert ist, im Konstruktor wird das private unveränderliche Objekt handler vom Typ KundeHandler injiziert.
+* Im Rumpf der Klasse wird die Single-Expression Function router definiert welche mit @Bean annotiert ist. Die Funktion hat eine andere Funktions namens router als Rückgabewert.
+* Die aufgerufene Funktion router ruft in einen Lamdaausdruck auf dem String "/" die funktion nest aufgeruft, welche wiederum in einem Lambda Ausdruck die Funktion GET aufruft.
+* Die Funktion GET nimmt als Parameter den String "/" und den Funktionsaufrauf handler::find entgegen.
+### Semantik
+* Die Annotation @Configuration bedeutet das es sich um eine Klasse handelt in der sich Funktionalität befindet die für die Konfiguration des Servers benötigt wird und deshalb von Spring vorgeladen werden soll
+* Der Klasse Router wird im Konstruktor eine Instanz der Klasse KundeHandler durch eine Constructor Injection übergeben. Die Annotation @Bean vor der Funktion router führt dazu das diese Funktion beim Start des Servers vorgeladen wird.
+* Die Funktion Router ruft wenn im Pfad nur ein / steht den Handler auf welcher alle Kunden sucht und ein Response Objekt baut.
