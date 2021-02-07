@@ -329,7 +329,7 @@
 
 * Elastic: Reaktion auf wechselnde Last d.h. Skalierbarkeit
 
-* Resilient: Reaktion auf Ausfälle z.B durch Replikation
+* Resilient: Reaktion auf Ausfälle z.B durch Refplikation
 
 * Responsive: Reaktion auf Requests der Clients bei kurzer Antwort und hoher Verfügbarkeit
 
