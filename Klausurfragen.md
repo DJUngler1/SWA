@@ -105,9 +105,6 @@ GET-Request!
 57) Was ist der Unterschied zwischen IAM und IDM? 
 
 58) Erklären Sie die Annotation @Bean! 
-@Bean annotiert eine Funktion. Die Funktionen die mit @Bean annotiert sind liefern Objekte, die später zur
-Laufzeit benötigt werden und die zur Laufzeit vom Spring-Container bereitgestellt werden, an den Stellen wo diese
-Objekte benötigt werden. 
 
 59) Erklären Sie den Unterschied zwischen @Bean & @Configuration 
 
