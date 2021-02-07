@@ -52,29 +52,28 @@ Monolithen führen?
 * 
 
 2)  Was ist Backpressure? 
-* Backpressure ist der Umgang mit Überlast wenn zu viele Anfragen eigehen. Der Publisher produziert nur bis zu einer Obergrenze der Subscriber abboniert nur bis zu einer Obergrenze. Alle Anfragen die über diese Grenzen gehen werden entweder zurückgewiesen oder an andere Server mit freien Kapazitäten weitergeleitet.
+* Backpressure ist der Umgang mit Überlast wenn zu viele Anfragen eigehen. // Dieser Teil dürfte reichen, die Frage ist was BackPressure ist nicht wie sie entsteht 
+*  Der Publisher produziert nur bis zu einer Obergrenze der Subscriber abboniert nur bis zu einer Obergrenze. Alle Anfragen die über diese Grenzen gehen werden entweder zurückgewiesen oder an andere Server mit freien Kapazitäten weitergeleitet.
 
 3)  Beschreiben Sie 3 Vorteile, die IntelliJ IDEA im Vergleich mit Editoren, wie Notepad++ hat? 
 * Refactoring: Um Klassennamen nachträglich zu ändern
 * Autovervollständigung von Variablennamen.
 * Codenavigation: mit Steurung+Linksklick auf einen Variablen/Klassennamen kommt man zu deren Definiion.
 
-1)  Vorteile von IntelliJ - IDE?
-
-2)  Was sind “one-way-functions” ? 
+1)  Was sind “one-way-functions” ? 
 * Funktionen die keine Inverse besitzten, also injektiv sind.
 
 3)  Erklären Sie nicht-blockierende Verarbeitung! 
-* Bei der nicht blockierenden Vearbeitung warten Threads wenn sie eine Anfrage an ein externe Ressource stellen nicht auf das Ergebniss sondern können direkt die nächste Anweisung durchführen.
+* Bei der nicht blockierenden Verarbeitung warten Threads wenn sie eine Anfrage an ein externe Ressource stellen nicht auf das Ergebniss sondern können direkt die nächste Anweisung durchführen.
 
-4)  Warum sollte asynchron statt imperativ programmiert werden? 
+4)  Warum sollte asynchron statt imperativ programmiert werden? // Die Frage ist blöd gestellt, sie müsste eher lauten "Wann sollte Asynchron Programmiert werden statt Imperativ"
 * Wenn man erwartet das die eigene Anwendung sehr viele Anfragen bekommt sollte asynchron entwickelt werden. Oder wenn man nicht auf den Eingang von Ergebissen warten möchte sondern diese nach und nach als Stream versendet/bekommt.
 
 5)  Erläutern Sie, warum nicht jede Server-Anwendung „reactive“ entwickelt wird! - KlausurFrage 
-* Wenn ein Anwendung mit imperativer Programmierung keine Probleme mit der Skalierung hat gibt es keinen Grund diese reactive zu entwickeln.
+* Reactive lohnt sich nur dann, wenn der Server später stark skalieren muss.
 
-6)  Erläutern Sie Probleme bei Reactive Programming!* - KlausurFrage 
-* bei einzelenen Requests langsamer als imperative Programmierung. Thread Management deutlch aufwändiger als bei imperativen Programmierung.
+1)  Erläutern Sie Probleme bei Reactive Programming!* - KlausurFrage 
+* Reactive Programming ist bei einzelenen Requests langsamer als die imperative Programmierung und das Thread Management ist deutlch aufwändiger.
 
 7)  Erklären Sie was ein Stacktrace ist.- Klausur-Frage 
 * Im Stacktrace werden alle Anweisung des Stacks in der Reihenfolge wie sie ausgführt wurden gelistet.
@@ -87,38 +86,39 @@ Monolithen führen?
 
 10) Erklären Sie die 4 Eigenschaften des Reactive Manifesto (MRRE)! 
 * message driven: Reaktion auf aynchron eingehende Nachrichten
-* resillient: Reaktion auf Ausfälle z.B durh zu viele Requests
+* resillience: Reaktion auf Ausfälle z.B durh zu viele Requests
 * elastic: Reaktion auf wechselnde Last
 * responsive: Reagieren auf Request schnell und mit hoher Verfügbarkeit
 
 1)  Grenzen Sie Funktionen, Methoden und Prozeduren voneinander ab! 
-* Methoden sind Funktionen sind Funktionen die auf Objekten aufgerufen werden. 
+* Methoden sind Funktionen sind Funktionen die auf Objekten aufgerufen werden.  // Was hast du dir hier gedacht Felix? 
 
 12) Was macht die Funktion findById() in der Handler Klasse? 
 * Die Funktion findById der Handler Klasse wird über den Router aufgerufen und sucht mithilfe des Services das Kundenobjekt mit der zugehörigen Id und baut das Response Objekt. Wenn die Id nich gefunden wurde einen leeren Body mit statuscode NotFound 404, wenn die Id gefunden wurde wird der Body gebaut mit Statuscode 200 im Header
+// hier den Code nochmal ansehen, und im Zweifel beschreiben was da genau im Code gemacht wird, hab das leider nicht mehr auswendig im Kopf und finde gerade meine SWA Projekte nicht mehr auf dem Rechner 
 
 13) Erklären Sie den Unterschied zwischen Flow und List in Kotlin! 
-* bei einer List müssen zum Übertragen der Liste alle Objekte da sein die Elemente eines Flows können nach und nach übertragen werden.
+* Bei einer Liste müssen zum Übertragen der Liste alle Objekte da sein die Elemente eines Flows können nach und nach übertragen werden.
 
 14) Was ist der Unterschied zwischen einer Menge/Set und einer Liste? 
-* Eine Liste hate eine Reihenfolge eine Menge nicht und bei einer Menge dürfen keine Elemente doppelt vorkommen
+* Eine Liste hate eine Reihenfolge, eine Menge nicht und bei einer Menge dürfen keine Elemente doppelt vorkommen
 
 15) Was ist der Unterschied zwischen Mutablelist und Flow? 
-* selebe wie List Flow
+* selebe wie List Flow // unsicher ob das stimmt
 
 16) Warum ist es sinnvoll, BigDecimal und nicht float/double zu verwenden? 
-* bei BigDecimal werden mehr Nachkommastellen abgebildet also kommt es zu weniger Rundungsfehlern weshalb BigDecimal genauer ist als double
+* Bei BigDecimal werden mehr Nachkommastellen abgebildet also kommt es zu weniger Rundungsfehlern.
 
 17) Erklären Sie den Zusammenhang von ETags & If-None-Match bei einem GET-Request & einem wiederholten
 GET-Request! 
-* Wenn der Kunde einen GET-Request macht wird ein E-Tag mitgeschickt welches die Versionsnummer beinhaltet. Bei einem erneuten GET-Request wid das die Versionsnummer mit If-None-Match mitgeschickt, das heißt dem Client werden die Daten nur dann geschickt wennn seine mitgeschickte Versionsnummer ungleich der aktuellen Versionsnummer wenn gleich hat er schon die aktuellsten Daten.
+* If-None Math beschreibt die Bedingung eines bedingten GET-Request. 
 
 1)  Erklären Sie ETags! 
 
 2)  Was ist ein bedingter GET-Request? bedingt→ if 
-* Ein bedingter GET-Request ist ein GET-Request der nur unter einer bestimmten Bedingung ausgeführt wird. Die Bedingung könnte zum Beispiel If-Non-Match
+* Ein bedingter GET-Request ist ein GET-Request der nur unter einer bestimmten Bedingung ausgeführt wird. // Es wurde nicht nach einem Beispiel gefragt 
 
-3)  Wie viele verschiedene Kombinationen gibt es bei 4 Checkboxen? - Klausurfrage 
+1)  Wie viele verschiedene Kombinationen gibt es bei 4 Checkboxen? - Klausurfrage 
 * 2^4 = 16
 
 4)  Unterschied Forward- und Reverse-Proxy? 
@@ -143,13 +143,13 @@ GET-Request!
 * Netty ist ein Embeded Web-Container.
 
 11) Unterschied Tomcat und Netty?s 
-* Netty ist leichtgewichtiger Tomcat.
+* Netty ist leichtgewichtiger als Tomcat.
 
 12) Wieso werden Microservices als Anwendungsdatenbank bezeichnet? 
-* Microservices werden als Anwendungsdatenbanken bezeichnet weil sie sich auf genau einen Geschäftsvorfall beziehen und in der Regel eine eigene Datenbank in der 
+* Microservices werden als Anwendungsdatenbanken bezeichnet weil sie sich auf genau einen Geschäftsvorfall beziehen und in der Regel eine eigene Datenbank in der // Satz bitte beenden du horst
 
 13) Was sind Microservices? 
-* Ein Microservice bildet einen Bounded Context ab und bildet eine Deploymenteinheit. Er fürt genau ein Business Case durch.
+* Ein Microservice bildet einen Bounded Context ab und bildet eine Deploymenteinheit, der genau einen Business Case durchführt.
 
 14) Was sind die Prinzipien von REST? 
 * Verwendungung von URIs zur Identifiklation von Ressourcen
@@ -161,7 +161,7 @@ GET-Request!
 * application/text/html
 
 1)  Erklären Sie IAM anhand von Social Logins! 
-* Identity acces Mangement ist die Autorisierung von Benutzern. Bei Social Logins werden externe Plattformen verwendet um die Autorisierung von Benutzern durchzuführen.
+* Identity Acces Mangement ist die Autorisierung von Benutzern. Bei Social Logins werden externe Plattformen verwendet um die Autorisierung von Benutzern durchzuführen.
 
 2)  Was ist der Unterschied zwischen IAM und IDM? 
 * IAM ist die Autorisierung von Benutzern also die Verwatlung von deren Rechten. IDM ist Athentifizierung von Benutzern.
@@ -173,11 +173,11 @@ GET-Request!
 * eine Funktion die mit @Bean annotiert ist muss zu einer Klasse gehören die mit @Configuration annotiert ist.
 
 5)  Was macht die Annotation @Version? 
-* Wird vor die Property für die Versionsnummer eines Datensatzes geschrieben damit gibt man die Verwaltung der Versionsnummer an Spring Data weiter.
+* Wird vor die Property für die Versionsnummer eines Datensatzes geschrieben dadurch gibt man die Verwaltung der Versionsnummer an Spring Data weiter.
 
 6)  Erläutern Sie, warum man bei Kotlin-Property, die mit @Version annotiert ist, auch die Annotation @JsonIgnore
 verwendet wird. 
-* Da die Versionsnummer vom Client nicht benötigt wird annotiert man diese mit @JsonIgnore sodass Jackson diese nicht mit in das JSON Objekt schreibt. 
+* Da die Versionsnummer vom Client nicht benötigt wird annotiert man diese mit @JsonIgnore, sodass Jackson diese nicht mit in das JSON Objekt schreibt. 
 
 1)  Wie ist das Hauptprogramm eines Microservices annotiert? 
 * Mit @SpringBootApplication
@@ -189,7 +189,7 @@ verwendet wird.
 * Pfad Parameter werden genutzt wenn nur ein Wert oder alles abgefragt wird und wenn der Pfad möglichst kurz sein soll. Wenn eine Abfrage mehrere Parameter hat und für leichtere lesbarkeit Verwendet man Query Parameter
 
 4)  Erklären Sie Singletons anhand eines Beispiels! 
-* Ein Singelton ist eine Klasse von der es nur eien Instanz geben darf, z.B. von der Service Klasse soll es 
+* Ein Singelton ist eine Klasse von der es nur eien Instanz geben darf, z.B. von der Service Klasse soll es // Beende deinen Satz du spaßt 
 
 5)  Was bedeutet Annotation @Service? 
 * Damit teilt man Spring mit das die annnotierte Klasse an anderen für eine Depency Injection genutzt wird, und das es sich um die Service Klasse handelt.
@@ -209,14 +209,15 @@ verwendet wird.
 
 1)  Nennen sie 4 Vorteile von Kotlin? 
 * smart cast satt type cast
-* Kotlin ist nullsafe außer man konfiguriert das Wert Null angenommen werden kann
+* Kotlin ist nullsafe 
 * Keine Semikolons am Zeilenende
 * Named Parameter statt Builder Pattern
 
-75) Nenne 4 typische Anfängerfehler in der Entwicklung? 
+1)  Nenne 4 typische Anfängerfehler in der Entwicklung? 
 * keine selbsterklärenden Namen werden verwendet
 * falsche Codeformatierung 
 * keine oder fehlerhafte kommentare
+* nicht Verwenden von Untersützugungstools wie beautify 
 
 1)  Wie erstellt man ein „immutable“ Objekt in Kotlin? 
 * Objekte in Kotlin sind standardmäßig immutable
@@ -231,18 +232,19 @@ verwendet wird.
 * Extension Functions Functions werden in C# durch Extentions Methods realisiert.
 
 5)  Wie lautet die Reihenfolge der Variablendeklaration? 
-* Frage ist dumm
+* Frage ist dumm // Da hast du recht 
 
 6)  Was ist eine Higher-Order Function? – KlausurFrage
-* Eine Higher-Order Function ist eine Funktion die als Parameter eine andere Funktion entgegenimmt oder als Rückgabewert.
+* Eine Higher-Order Function ist eine Funktion die als Parameter eine andere Funktion entgegenimmt. 
 
-7)  Wieso braucht man Lambda-Ausdrücke in Higher-Order Functions?
+1)  Wieso braucht man Lambda-Ausdrücke in Higher-Order Functions?
 * Mit Lambda-Ausdrücken kann man anonyme Funktionen als Parameter für Higher-Order Funtions
 
 8)  Was sind pure functions? – phase6 15
-* pure function sind Funktionen die beim selben Eingabewert immer den selben Rückgabewert liefern. z.B. Funktion zur Berechnung der Mehrwertsteuer.
+* pure function sind Funktionen die beim selben Eingabewert immer den selben Rückgabewert liefern. // Es ist nicht nach einem Beispiel gefragt, dann gib auch keins sonst hast du am ende einen Rechtschreib fehler da drin und die ganze aufgabe gibt keinen punkt merh 
 
-9)  Erklären Sie eine Single Expression Function anhand eines Beispiels! - KlausurFrage 
+
+1)  Erklären Sie eine Single Expression Function anhand eines Beispiels! - KlausurFrage 
 * Eine Single Expression Function ist eine Funktion die nur einen Ausdruck hat. Bsp: fun function(val number) = number * 5
 
 10) Erklären Sie Syntax & Semantik des folgenden Codefragments: 
@@ -264,7 +266,7 @@ verwendet wird.
 * runBlocking{} blockiert die Ausführung eines Threads bis die Coroutinene fertig sind.
 
 16) Wie geht Kotlin mit null-Status um?* - Klausur-Frage 
-* In standardmäßig nichts den Wert null annehmen der Wert null kannn nur dann angenommmen werden wenn wir den Code so schreiben das etwas null sein darf.
+* Standardmäßig kann nichts den Wert null annehmen, der Wert null kannn nur dann angenommmen werden wenn wir den Code so schreiben das etwas null sein darf.
 
 17) Erklären Sie den Safe Call Operator? 
 * MIt dem Safe Calll Operator wird geprüft ob etwas den Wert null hat, eine weiter Operation wird nur durchgeführt wenn es nicht den Wert null hat.
@@ -280,7 +282,7 @@ KlausurFrage
 * eine Singel Abstract Method ist ein funktionales Interface mit genau einer Methode.
 
 96) Was ist ein Companion Object? 
-* Ein Singelton das zu einer Klassse gehört wird statt static verwendet.
+* Ein Singelton das zu einer Klassse gehört.
 
 97) Was ist eine Kotlin Coroutine? 
 * leichtgewichte benutzerlevel Threads werden in Kotlin zur Umsetzung nicht blockierender Verabeitung genutzt.
@@ -301,27 +303,27 @@ KlausurFrage
 * class MitarbeiterHandler(private val service: MitarbeiterService){...}
 
 1)   Was bedeutet Inversion of Control (IoC)? 
-* Abgeben der Kontrolle an eine Plattform, z.B Spring.
+* Abgeben der Kontrolle an eine Plattform wie Spring.
 
-2)   Warum sollte Dependency Injection, die Constructor Injection und nicht die Field Injection nutzen? 
-* Bei der Constructor Injection kann man die Abhängigkeiten der Klasse leichter sehen, da direkt im Konstruktor der Klasse. Und im Gegensatz zur Field Injection kann es bei der Constructor Injection keine endlos Rekursion geben.
+2)   Warum sollte Dependency Injection und nicht die Field Injection nutzen? // Die frage war auch dumm 
+* Durch Dependency Injection können Abhänigkeiten einer Klasse leichter erkannt werden und es kann nicht zu einer endlos Rekursion kommen.ne endlos Rekursion geben.
 
-3)   Was bedeutet Convention over Configuration (CoC)? 
+1)   Was bedeutet Convention over Configuration (CoC)? 
 * Wir haben sinnvolle Defaultwerte sodass wir nur noch Ausnahmefälle konfigurieren müssen. Configuration by Exception.
 
-4)   Erklären Sie Convention over ConfigurationW (CoC) am Beispiel von JSON und Kotlin Objekten! 
+1)   Erklären Sie Convention over ConfigurationW (CoC) am Beispiel von JSON und Kotlin Objekten! 
 * Bei Jackson werden Standarmäßig alle Werte transformiert außer solche die wir mit @JsonIgnore annotiern.
 
-5)   Wann verwendet man Jackson? 
+1)   Wann verwendet man Jackson? 
 * Jackson wird verwendet um JSON-Objekte in Kotlin-Obejekte zu konvertieren und umgekehrt.
 
-6)   Was versteht man unter dem Builder Pattern + Bsp im eigenen Projekt?
+1)   Was versteht man unter dem Builder Pattern + Bsp im eigenen Projekt?
 * Unter dem Builder Pattern versteht man die Verkettung von Funktionen. return ok().bodyValueAndAwaiit(Mitarbeiter)
 
-7)   Wieso sind Named Parameters besser als das Builder Pattern? 
+1)   Wieso sind Named Parameters besser als das Builder Pattern? 
 * Named Parameter sind leichter verständlich und unabhängig von der Reihenfolge in der sie definiert wurden.
 
-8)   Erklären Sie das LIFT-Prinzip! 
+1)   Erklären Sie das LIFT-Prinzip! 
 * L ocating our code is easy
 * I dentify code at a glance 
 * F lat structure as long as we can
@@ -330,19 +332,19 @@ KlausurFrage
 # Statuscodes 
 
 1)   Welche Statuscodes kommen bei einem fehlgeschlagenen POST Request bzw. PUT-Request zurück? 
-* ein passender 400 er code oder 500 wenn es sich um einen internen Fehler handelt
+* ein passender 400 er code oder 500 wenn es sich um einen internen Fehler handelt // sicher? 
 
-2)   Was geben die Statuscodes 200,201, 204 zurück. Nenne auch die aufgerufene HTTP-Methoden. -phase6 
+1)   Was geben die Statuscodes 200,201, 204 zurück. Nenne auch die aufgerufene HTTP-Methoden. -phase6 
 * 200 ist ok kommt z.B bei einem GET Request zurück. 201 created, bei einem erlorgreich post request , 204 no content kommt bei einem erlogreichen put oder patch request zurück
 
-3)   Erklären Sie das Zusammenspiel von Client und Server!  
+1)   Erklären Sie das Zusammenspiel von Client und Server!  
 * Der Client schickt eine Anfrage in Form eines HTTTP-Request an den Server der Server verarbeitet den Request und sendet einen Response dessen Header enthält enthält Info darüber ob der Reques erfolrgreich war in Form eines Statuscodes
 
-4)   Nenne 2 Authentifizierungsverfahren bei RESTful Webservices! 
+1)   Nenne 2 Authentifizierungsverfahren bei RESTful Webservices! 
 * Anmelden mit Eingabe von Benutzerkennung und Passwort
 * Anmelden durch mitsenden eines Tokens
 
-5)   Wieso ist es bei verteilten Systemen mit Microservices problematisch BASIC-Authentifizierung zu
+1)   Wieso ist es bei verteilten Systemen mit Microservices problematisch BASIC-Authentifizierung zu
 verwenden? 
 * bei jedem Request an einen der Microservices müsste man erneut Benutzername und Passwort mitsenden.
 
@@ -353,25 +355,26 @@ verwenden?
 1)   Erläutern Sie HATEOAS mit Beispielen von Unternehmen wie PayPal, Facebook, …! 
 * Bei HAtEOAS werden mit dem Request links mit gesendet entweder in Form von Atom-Links oder Link-Header. Bei Paypal zum Beispiel wird bei einer ausgeführten Zahlung direkt der Link zum Beleg der Zahlung mitgesendet.
 
-2)   Erklären Sie den Unterschied zwischen Atom-Links & Link-Header! 
+1)   Erklären Sie den Unterschied zwischen Atom-Links & Link-Header! 
 * Atom-Links sind selbserklärende URIs im Body des Respomse, Link-Header sind selbserklärende URIs im Header des Response
 
-3)   Erkläre Unterschied zwischen URI und URL! 
+1)   Erkläre Unterschied zwischen URI und URL! 
 * URI ist ein eindeutiger bezeichner für eine Ressource. Bei einer URL ist zusätzlich noch die Information enthalten wie auf die Ressource zugergriffen werden kann. Jede URL ist auch eine URI aber nicht umgekehrt
 
-4)   Was ist der Unterschied zwischen Structural Links & Transitional Links? 
+1)   Was ist der Unterschied zwischen Structural Links & Transitional Links? 
 Datenbankzugriff und Spring Data (MongoDB) 
 
 1)   Was heißt eventually consistent? 
 * Mehrere Datenbank sollen untereinader Konsistenz sein aber nicht sofort sondern nur irgendwann zu einem späteren Zeitpunkt
+* Das die Konsistenz von Datenbanken nicht sofort aber zu einem späteren Zeiptunkt gewährleistet seien soll.
 
-2)   Erklären Sie die Funktionsweise bei optimistischen DB-Transaktionen!
+1)   Erklären Sie die Funktionsweise bei optimistischen DB-Transaktionen!
 * Bei optimistischen Datenbanktransktionen wird die Ressource nicht gesperrt sondern es kann auch von anderen Request auf die Ressource zugegriffen.
 
-3)   Wieso ist es bei verteilten Systemen sinnvoll keine pessimistische Synchronisation zu verwenden? 
+1)   Wieso ist es bei verteilten Systemen sinnvoll keine pessimistische Synchronisation zu verwenden? 
 * weil wir bei peseimistischen Transaktionen über mehrere Microservices hinweg eine Ressource blockieren müssten was extrem aufwändig ist
 
-4)   Erläutern Sie, was passiert, wenn auf optimistische Synchronisation verzichtet wird und eine
+1)   Erläutern Sie, was passiert, wenn auf optimistische Synchronisation verzichtet wird und eine
 konkurrierende Änderung schneller erfolgt als die eigene Änderung: Update - Update 
 * die eigene Änderung kann nicht durchgeführt werden weil die Ressource blockiert ist.
 
@@ -388,9 +391,9 @@ Löschen schneller erfolgt als das eigene Löschen. Delete - Delete
 * Dafür vorlesung ansehen
 
 1)   Wie beschreibt man Abhängigkeiten in SQL bzw. MongoDB? 
-* in SQL mit Fremdschlüsseln, MongoDB mit Embedded Documents
+* in SQL mit Fremdschlüsseln, in MongoDB mit Embedded Documents
 
-2)   Nennen Sie zu Collection, Document & Embedded Document, die dazugehörigen Gegenstücke in
+1)   Nennen Sie zu Collection, Document & Embedded Document, die dazugehörigen Gegenstücke in
 relationalen DB-Systemen. 
 * Collection - Tabelle
 * Document - Tabellenzeile
@@ -401,25 +404,25 @@ relationalen DB-Systemen.
 * sparse in Mongo - Null in relationaler Db
 * Progammatische Queries - SQL
 
-2)   Was ist das Schema bei relationalen Datenbanken? 
+1)   Was ist das Schema bei relationalen Datenbanken? 
 * Das Schema ist das CRREATE Table
 
 1)   Erklären Sie die Unterschiede zwischen relational und objektorientiert! 
 * relational mehrere Tablenen die Über Fremdschlüssel referenziert werden. Objektorientiert ein Objekt mit untergeordneteten Objekten
 
-2)   3 Unterschiede zwischen REST und DDD? 
+1)   3 Unterschiede zwischen REST und DDD? 
 * REST Uris vs DDD Ids
 * REST E-Tag vs DDD Version
 * RESt link vs DDD Relation
 
-3)   Wie werden Beziehungen in rel. DB, JSON Documents & Kotlin Objekten realisiert? 
+1)   Wie werden Beziehungen in rel. DB, JSON Documents & Kotlin Objekten realisiert? 
 * Bei relationalen DBs durch Fremdschlüssel bei, JSON durch Embedded Documents, bei Kotlin durch Referenzen.
 
-4)   Wann benutzt man ReactiveCrudRepository & wann ReactiveMongoOperations? 
+1)   Wann benutzt man ReactiveCrudRepository & wann ReactiveMongoOperations? 
 * ReactiveCrudRepository benutzt man für den Zugriff auf eine relationale Datenbandk. ReactiveMongoOperations benutzt man für den Zugriff auf ein Monogo Datenbank.
 
-5)   Vergleichen Sie die Abfrage einer relationalen DB mit der Abfrage in MongoDB! 
-* Bei einer Abfrage in Mongo DB sind keine Tranksaktionen notwendig bei  außer beim Zugriff auf mehrere Documents gleichzietig, bei raltionalten DBs immer. Bei relationalen DB gibt es eine Query Language bei MongoDB funktionale Queries.
+1)   Vergleichen Sie die Abfrage einer relationalen DB mit der Abfrage in MongoDB! 
+* Bei einer Abfrage in Mongo DB sind keine Tranksaktionen notwendig, außer beim Zugriff auf mehrere Documents gleichzietig, bei raltionalten DBs immer. Bei relationalen DB gibt es eine Query Language bei MongoDB funktionale Queries.
 
 1)   Erklären Sie 2 Pattern aus DDD, die bei Spring Data ähnlich verwendet werden? 
 
@@ -429,78 +432,81 @@ relationalen DB-Systemen.
 * Column Sotore: Speichern von Datensätzen in Zeilen
 * Graph Database: Darstellung von Daten durch Beziehungen zwischen Knoten
 
-3)   Warum sollte MongoDB und nicht relationale DB genutzt werden? 
+1)   Warum sollte MongoDB und nicht relationale DB genutzt werden? // Frage ist dumm, Wann sollte MongoDB genutzt werden statt Rel. DB nicht warum
 * hoch skalierbar
 * mächtige Query Syntax
 * asynchroner Zugirff auf MongoDB möglich
 * JSON-Schema möglich aber nicht notwendig
 
-4)   Was ist umständlich an MongoDB? 
+1)   Was ist umständlich an MongoDB? 
 * Join über mehrere Dokumente nur schwer möglich bis unmöglich
 * keine Qeury Language
 
 1)   Wieso werden Transaktionen bei MongoDB nicht wirklich benötigt. 
 * Weil wir im normalfall nur Änderungen auf einem Dokument durchführen
 
-2)   Beschreiben Sie, wann man bei MongoDB bei einem Schreibvorgang keine explizite Transaktion benötigt! 
+1)   Beschreiben Sie, wann man bei MongoDB bei einem Schreibvorgang keine explizite Transaktion benötigt! 
 * wenn der Schreibvorgang nur auf einem Dokument durchgeführt wird
 
-3)   Beschreiben Sie, wie man sinnvollerweise interaktiv inspiziert, ob Daten in MongoDB auch wirklich
+1)   Beschreiben Sie, wie man sinnvollerweise interaktiv inspiziert, ob Daten in MongoDB auch wirklich
 eingefügt oder aktualisiert wurden. 
 * Durch betrachten der Daten mit einem Werkzeug wie MongoDB Compass
 
 1)   Beschreiben Sie, was man unter „Type-Safe Queries“ versteht. 
-* Bei Vergleichen Value Objects statt Strings bnenutzen
+* Das Vergleichen von Value Objects statt Strings. 
 
-2)   Beschreiben Sie eine Möglichkeit, wie man in einem Spring Profile z.B. „dev“, prinzipiell die Testdaten in der
+1)   Beschreiben Sie eine Möglichkeit, wie man in einem Spring Profile z.B. „dev“, prinzipiell die Testdaten in der
 DB zurücksetzen kann.
 * Beim Starten wird das Profile überprüft und jenach Profile wird die Datenbank zurückgesetzt oder halt nicht.
+* // Bin mir nicht sicher, aber ist es nicht so das man in einem Profil eine Wert setzten kann der bewirkt das sich die Datenbank beim Neustarten neu lädt 
 # Tests 
 
 1)   Was bedeutet „just Runs“ in der Syntax? 
 * der Test soll nur durchlaufen das Ergebnis ist egal der die Funktion hat keinen Rückgabewert
 
-2)   Was macht Mocking? 
-* Mocking täuscht einen Datenbankzugriff vor und es werden Testdaten eingelesen
+1)   Was macht Mocking? 
+* Mocking täuscht einen Datenbankzugriff vor der jedoch nur Testdaten einliest
 
-3)   Was macht Funktion „every“? 
+1)   Was macht Funktion „every“? 
 * Higher-Order Function definiert welches verhalten gemockt werden soll
 
-4)   Was macht die Annotation @Nested? 
+1)   Was macht die Annotation @Nested? 
 * Dadurch wird die Schachtelung von Testklasse ermöglicht
 
-5)   Was macht die Annotation @Order und warum steht in den Klammern von @Order eine 1000? 
-* Mit @Order wird die Reihenfolge der Tests festgelegt. @Order(1000) deshalb da noch genug Platz ist um neue Tests einzufüggen
+1)   Was macht die Annotation @Order und warum steht in den Klammern von @Order eine 1000? 
+* Mit @Order wird die Reihenfolge der Tests festgelegt. @Order(1000) damit noch Test zwischen drin eingefügt werden können
 
-6)   Was macht die Annotation @Disabled? 
+1)   Was macht die Annotation @Disabled? 
 * Mit @Disabled wird ein test deaktiviert
 
-7)   Warum und wann sollte getestet werden? 
+1)   Warum und wann sollte getestet werden? 
 * Getestet werden sollte immer dann wenn eine Komponente fertig ist. Testen ist wichtig um die Funktionalität zu Überprüfen.
+* // Frage ist dumm, Entweder du schreibst zu erste deine Test und entwickelst dann deine zugehörigen Klassen (TestDrivenDesign), oder du schreibst erst die Klassen und dann die Test (DDD)
 
-8)   Wofür steht die Annotation @CsvSource? 
+1)   Wofür steht die Annotation @CsvSource? 
 * Bei Prametrisierten Test auslesen der Werte aus einer CSV Datei
 
-9)   Nach welcher Funktionalität sollten Testklassen aufgebaut sein orientieren sie sich an CRUD? 
+1)   Nach welcher Funktionalität sollten Testklassen aufgebaut sein orientieren sie sich an CRUD? 
 * Frage ist lost testen orientiert sich nicht an CRUD
+* // Verstehe worauf die hinaus wollten die sich die frage gestellt haben aber Frage ist trd blöd 
 
-10)  Nenne die bekanntesten Testarten und beschreibe Sie! 
+1)   Nenne die bekanntesten Testarten und beschreibe Sie! 
 * Unit-Test: Testen von kleinen Funktionalitäten, Unit Tests sind voneinander unabhängig
 * Integrationtest: Testen der Integration von Komponenten 
 * End-to-End Test: Tests über das gesamte System angefangen mit der Benutzerschnittstelle
 
-11)  Erklären Sie AAA bei Unit-Tests! 
+1)   Erklären Sie AAA bei Unit-Tests! 
 * arrange: setzen der vorraussetzungen und erwarteten Ergebnisse für die Tests
 * act: ausführen der eigentlichen Tests.
 * assort: Testergebnisse mit den erwarteten Ergebnissen vergeleichen
 
-12)  Warum kann man bei der Testentwicklung in Kotlin von Specificationlike Test sprechen? 
+1)   Warum kann man bei der Testentwicklung in Kotlin von Specificationlike Test sprechen? 
 * Im Funktionsnamen kann abgelesen werden was getestet wird.
 
-13)  Was versteht man unter SoftAssertion 
-* Wenn einer der Tests fehlschlägt bricht nicht alles ab sondern asführung geht weiter am Ende werden die nicht erfolgreichen Tests angezeigt.
+1)   Was versteht man unter SoftAssertion 
+* Wenn einer der Tests fehlschlägt bricht nicht alles ab ,sondern die ausführung geht weiter. 
 
-14)  Was ermöglicht uns Kotest? 
+1)   Was ermöglicht uns Kotest? 
 * Überprüfung von Testergebnissen mit Hilfe von Infix Opreatoren
 # Security 
   
@@ -511,9 +517,9 @@ DB zurücksetzen kann.
 * Dadurch wird festgelegt das eine Funktion nur mit der in der Klammer spezifizierten Rollle ausgeführt werden kann.
 
 1)   Was ist der Unterschied zwischen einer Rolle und einer Gruppe? 
-* Eine Rolle ist eine Menge von Zugriffsrechten die einem Benutzer zugewiesen werden kann eine Gruppe ist eine Menge von Benutzerkennungen.
+* Eine Rolle ist eine Menge von Zugriffsrechten die einem Benutzer zugewiesen werden kann, eine Gruppe ist eine Menge von Benutzern.
 
-2)   Erkläre die Abkürzung SSO! 
+1)   Erkläre die Abkürzung SSO! 
 * Single Sign on, nur eine Anmeldung danach ist man im ganzen Cluter angemeldet
 # Logging 
 
@@ -525,15 +531,16 @@ DB zurücksetzen kann.
 * DEBUG - wen angefragt zeigt an welche Fehler wo passieren, Entwickeler
 * TRACE, Entwickler
 
-1)   Warum {} besser als () ist, erklären Sie anhand diesem Codebeispiel? 
+1)   Warum {} besser als () ist, erklären Sie anhand diesem Codebeispiel? // Frage ist dumm Formuliert => Warum wird bei Lazy Logging {} und nicht () verwendet
 Apache Log4j2 kann Lazy Logging ? 
 * Wenn () wird erst dann geladen wenn gebraucht werden
+* Bei Lazy Logging werden {} statt verwendet (), da daddurch das Objekt nur dann geladen wird wenn es wirklich gebraucht wird. 
 
 1)   Beschreiben Sie eine Log-datei? 
 * Ein Eintrag in Lodatei besteht aus Zeitstempel loglevel Packagename Message Rechnername und Prozess Id.
 
 1)   Warum ist Trailing Comma ein tolles Feature? 
-* Man kann die einzelnen Bestandteile vertauschen und neue Sachen hinzufügen ohne das Fehler durch vergessene Kommas passieren 
+* Man kann die einzelnen Objekte miteinander vertauschen und neue Objekte einfach hinzufügen ohne das Fehler durch vergessene Kommas auftreten 
 
 1)   Erklären Sie die Impedance Mismatch? 
 * Bei Umwadeln von n zu n Beziehungen von Objektorientiert zu relational müssen für eine korrekte Abbildung Zwischetabellen angelegt werden.
@@ -551,22 +558,30 @@ Apache Log4j2 kann Lazy Logging ?
         assertThat(result).isNotNull()
         }
 * Die Variable result kann den Wert Null nicht annehmen somit ist die Prüfung mit .istNotNull() hier überflüssig.
-2)   Schreiben Sie den nachfolgenden Code so um, das Lambda-Ausdrücke verwendet werden. 
+* 
+1)   Schreiben Sie den nachfolgenden Code so um, das Lambda-Ausdrücke verwendet werden. 
 #
+
         val kunden = listOf(...)
         val namen = mutableListOf<String>()
         for (k in kunden){
         if (k.umsatz > 1000 ){
         namen.add(k.name)
         } }
-* kunden.filter(it.umsatz > 1000).forEach{namen.add(it.name)}
-4)   Was ist an folgendem Code schlecht? 
+
+#
+val kunden = listOf(..)
+val namen = kunden.filter {it.umsatz >}
+                  .map {it.name}
+
+
+1)   Was ist an folgendem Code schlecht? 
 #
         fun sendMessage(user: User,
                         body: String, time: LocalDateTime?) =
             sendMessage(user, body, null)
 * Die Funktion sendMessage ruft sich im Rumpf selbst auf was zu einer Endlosrekursion führt
-5)   Beschreiben Sie den Code nach der Syntax und der Semantik (Code-Fragment wurde vorgegeben von Router Function) 
+1)   Beschreiben Sie den Code nach der Syntax und der Semantik (Code-Fragment wurde vorgegeben von Router Function) 
 #
         @Configuration
         class Routes (private val handler: KundeHandler) {
